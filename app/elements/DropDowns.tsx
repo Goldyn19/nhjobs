@@ -14,11 +14,11 @@ interface DropDownProps {
 
 const DropDowns: React.FC<DropDownProps> = ({ label, options, onChange }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const handleCheckboxChange = (value: string) => {
     let updatedValues: string[];
@@ -32,48 +32,51 @@ const DropDowns: React.FC<DropDownProps> = ({ label, options, onChange }) => {
     setSelectedValues(updatedValues);
     onChange(updatedValues); // Pass updated values to the parent
   };
+
   return (
-    <div className="relative block bg-nhBlue-200 text-white">
+    <div className="relative block bg-white text-black">
       <div className="text-white">
-        <button
-          type="button"
-          className={`inline-flex mt-2 w-full text-xl focus:outline-none ${
-            isOpen ? "text-nhOrange-100" : "text-white"
-          }`}
-          id="menu-button"
-          aria-expanded="true"
-          aria-haspopup="true"
-          onClick={toggleDropdown}
+      <button
+        type="button"
+        className={`inline-flex mt-2 w-full text-l focus:outline-none ${
+        isOpen ? "text-gray-500 font-bold" : "text-black"
+        } p-2`}
+        id="menu-button"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        onClick={toggleDropdown}
+        style={{ fontSize: "14px", justifyContent: "space-between", alignItems: "center" }}
+      >
+        {label}
+        <span className={`ml-2 transform transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}>
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {label}
-          <svg
-            className="-mr-1 ml-2 h-8 w-8"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fillRule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+        </span>
+      </button>
       </div>
       {isOpen && (
-        <div className="py-1" role="menu">
-          {options.map((option) => (
-            <div key={option.value} className="flex items-center space-x-2">
-              <Checkbox
-                id={option.value}
-                className="rounded-full ml-6"
-                onCheckedChange={() => handleCheckboxChange(option.value)}
-              />
-              <label htmlFor={option.value}>{option.label}</label>
-            </div>
-          ))}
+      <div className="py-1" role="menu" style={{ fontSize: "13px" }}>
+        {options.map((option) => (
+        <div key={option.value} className="flex items-center space-x-2 p-1 rounded-md">
+          <Checkbox
+          id={option.value}
+          className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+          checked={selectedValues.includes(option.value)}
+          onCheckedChange={() => handleCheckboxChange(option.value)}
+          />
+          <label htmlFor={option.value} className="font-medium text-gray-700">
+          {option.label}
+          </label>
         </div>
+        ))}
+      </div>
       )}
     </div>
   );

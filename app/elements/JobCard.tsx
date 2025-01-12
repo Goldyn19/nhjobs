@@ -1,6 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { CiBookmark } from "react-icons/ci";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 interface jobCardProps {
   date: string;
@@ -30,21 +36,21 @@ const JobCard: React.FC<jobCardProps> = ({
         style={{ backgroundColor: color }}
       >
         <div className="w-full flex justify-between">
-          <div className="rounded-full bg-white px-3 py-2 flex flex-col justify-center">
+            <div className="rounded-full bg-white px-3 py-0.5 flex flex-col justify-center font-medium text-[12px]">
             {date}
-          </div>
+            </div>
           <div className=" flex flex-col justify-center ">
-            <button className=" bg-white rounded-full p-2">
-              <CiBookmark />
+            <button className="bg-white rounded-full p-2">
+              <CiBookmark size={17} />
             </button>
           </div>
         </div>
         <div className="flex flex-col space-x-1 mt-5">
           <div className="px-1.5">
-            <h1>{companyName}</h1>
+            <h1 className={`font-medium text-[13px] ${poppins.className}`}>{companyName}</h1>
           </div>
           <div className="flex justify-between">
-            <h1 className="text-2xl max-w-[200px]">{role}</h1>
+            <h1 className={`text-2xl max-w-[200px] font-medium text-[29px]  ${poppins.className}`}>{role}</h1>
             <div className="flex flex-col justify-center">
               <Image
                 src={logo}
@@ -60,7 +66,7 @@ const JobCard: React.FC<jobCardProps> = ({
           {otherDetails.map((detail, index) => (
             <h1
               key={index}
-              className="rounded-full whitespace-nowrap border border-black px-2 py-1 m-1"
+              className="rounded-full whitespace-nowrap border border-[#8a9094] px-3 py-1 m-1 text-sm font-medium"
             >
               {detail}
             </h1>
@@ -69,8 +75,8 @@ const JobCard: React.FC<jobCardProps> = ({
       </div>
       <div className="flex justify-between p-3">
         <div className="flex flex-col">
-          <h1 className="font-bold text-xl">${salary}/hr</h1>
-          <h1 className="text-gray-500">{location}</h1>
+          <h1 className="font-bold text-xl">₦ {salary}/hr</h1>
+          <h2 className="text-gray-500">{location}</h2>
         </div>
         <div>
           <button className="px-3 py-2 bg-black text-white rounded-full">
