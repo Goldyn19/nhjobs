@@ -81,73 +81,70 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
   };
 
   return (
-    <div className="bg-nhBlue-200 py-4 hidden md:block">
+    <div className="bg-white py-4 hidden md:block">
       <div className="container mx-auto justify-center flex align-middle space-x-8">
         {/* Category Filter */}
-        <div className="flex  text-white">
-          <div className="rounded-full border flex align-middle justify-center justify-items-center h-auto w-auto p-2">
-            <CiSearch className="text-white text-lg" />
+        <div className="flex space-x-3 text-black items-center">
+          <div className="rounded-full border flex align-middle justify-center h-auto w-auto p-2 hover:bg-gray-200 transition-colors duration-200">
+            <CiSearch className="text-black text-lg" />
           </div>
           <Select onValueChange={(value) => handleFilterChange("category", value)}>
-            <SelectTrigger className="border-0 w-[180px] bg-nhBlue-200">
-              <SelectValue placeholder="Select a category" />
+           <SelectTrigger className="border-0 w-[180px] bg-transparent focus:ring-2 focus:ring-blue-500" style={{ borderRadius: '20px' }}>
+              <SelectValue placeholder="Category" />
             </SelectTrigger>
-            <SelectContent className="bg-nhBlue-200 text-white">
-              <SelectItem value="designer">designer</SelectItem>
-              <SelectItem value="frontend">front end</SelectItem>
-              <SelectItem value="backend">back end</SelectItem>
-              <SelectItem value="devops">devops</SelectItem>
-              <SelectItem value="fullstack">fullstack</SelectItem>
-              <SelectItem value="mobile app developer">
-                mobile app developer
-              </SelectItem>
+            <SelectContent className="bg-white text-black rounded-md shadow-lg">
+              <SelectItem value="designer">Designer</SelectItem>
+              <SelectItem value="frontend">Front End</SelectItem>
+              <SelectItem value="backend">Back End</SelectItem>
+              <SelectItem value="devops">DevOps</SelectItem>
+              <SelectItem value="fullstack">Fullstack</SelectItem>
+              <SelectItem value="mobile app developer">Mobile App Developer</SelectItem>
             </SelectContent>
           </Select>
-          <Separator orientation="vertical" className="bg-white h-full" />
+          <Separator orientation="vertical" className="bg-gray-300 h-full" />
         </div>
 
         {/* Location Filter */}
-        <div className="flex space-x-3 text-white">
-          <div className="rounded-full border flex align-middle justify-center justify-items-center h-auto w-auto p-2">
-            <IoLocationOutline className="text-white text-lg" />
+        <div className="flex space-x-3 text-black items-center">
+          <div className="rounded-full border flex align-middle justify-center h-auto w-auto p-2 hover:bg-gray-200 transition-colors duration-200">
+            <IoLocationOutline className="text-black text-lg" />
           </div>
           <input
             type="text"
-            className="bg-nhBlue-200 border border-gray-400 rounded-2xl text-white px-3 "
-            placeholder="Enter location"
+            className="border border-gray-300 md:w-[250px] rounded-md w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            placeholder="Location"
             onChange={(e) => handleFilterChange("location", e.target.value)}
+            style={{ borderRadius: '20px' }}
           />
-          <Separator orientation="vertical" className="bg-white h-full" />
+          <Separator orientation="vertical" className="bg-gray-300 h-full" />
         </div>
 
         {/* Experience Filter */}
-        <div className="flex space-x-3 text-white">
-          <div className="rounded-full border flex align-middle justify-center justify-items-center h-auto w-auto p-2">
-            <CgBriefcase className="text-white text-lg" />
+        <div className="flex space-x-3 text-black items-center">
+          <div className="rounded-full border flex align-middle justify-center h-auto w-auto p-2 hover:bg-gray-200 transition-colors duration-200">
+            <CgBriefcase className="text-black text-lg" />
           </div>
-          <Select onValueChange={(value) => handleFilterChange("experience", value)}>
-            <SelectTrigger className="border-0  w-[180px]">
+            <Select onValueChange={(value) => handleFilterChange("experience", value)}>
+            <SelectTrigger className="border-0 w-[180px] bg-transparent focus:ring-2 focus:ring-blue-500" style={{ borderRadius: '20px' }}>
               <SelectValue placeholder="Experience" />
             </SelectTrigger>
-            <SelectContent className="bg-nhBlue-200 text-white">
-              <SelectItem value="designer">0-1 years</SelectItem>
-              <SelectItem value="front end">1-2 years</SelectItem>
-              <SelectItem value="back end">2-3 years</SelectItem>
-              <SelectItem value="devops">3-4 years</SelectItem>
-              <SelectItem value="fullstack">4-5 years</SelectItem>
-              <SelectItem value="mobile app developer">5+ years</SelectItem>
+            <SelectContent className="bg-transparent text-black" style={{ borderRadius: '20px' }}>
+              <SelectItem value="0-1 years">0-1 years</SelectItem>
+              <SelectItem value="1-2 years">1-2 years</SelectItem>
+              <SelectItem value="2-3 years">2-3 years</SelectItem>
+              <SelectItem value="3-4 years">3-4 years</SelectItem>
+              <SelectItem value="4-5 years">4-5 years</SelectItem>
+              <SelectItem value="5+ years">5+ years</SelectItem>
             </SelectContent>
-          </Select>
-          <Separator orientation="vertical" className="bg-white h-full" />
+            </Select>
+          <Separator orientation="vertical" className="bg-gray-300 h-full" />
         </div>
         {/* Salary Filter */}
-        <div className="flex space-x-3 align-middle justify-center text-white">
-          <div className="rounded-full border flex align-middle justify-center justify-items-center h-auto w-auto p-2">
-          {getIcon(sliderValue)}
+        <div className="flex space-x-3 items-center text-black">
+          <div className="rounded-full border flex items-center justify-center h-auto w-auto p-2 hover:bg-gray-200 transition-colors duration-200">
+            <CiMoneyBill className="text-black text-lg" />
           </div>
-          <h6 className="flex align-middle text-center justify-center pt-1.5">
-            Per Month
-          </h6>
+          <h6 className="text-center">Per Month</h6>
           <Slider
             defaultValue={[50]}
             max={1000}
@@ -156,8 +153,9 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
               setSliderValue(value[0]);
               handleFilterChange("salary", value[0]);
             }}
-            className={cn("w-[200px]")}
+            className="w-[200px]"
           />
+          <div className="ml-2 text-sm text-gray-500">{sliderValue}</div>
         </div>
       </div>
     </div>

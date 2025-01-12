@@ -163,22 +163,24 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
   return (
     <div className="mx-0 h-full flex">
       <div className="md:flex min-w-full">
-        <div className="md:w-1/6 hidden bg-nhBlue-200 md:flex mx-auto justify-center ">
+        <div className="md:w-1/6 hidden bg-white md:flex mx-auto justify-center ">
           <div className={`md:block mt-10`}>
-            <h1 className="hidden md:block text-white  text-2xl pb-4">
+            <h1 className="hidden md:block text-black font-bold text-xl pb-4">
               Filters
             </h1>
-            <hr className="mb-4" />
+            <hr className="mb-2" />
             <DropDowns
               label="Working Schedule"
               options={workingScheduleOption}
               onChange={handleFilterChange("schedule")}
             />
+            <hr className="mb-1 mt-3" />
             <DropDowns
               label="Employment Type"
               options={employmentTypeOptions}
               onChange={handleFilterChange("employmentType")}
             />
+            <hr className="mb-1 mt-3" />
             <DropDowns
               label="Date posted"
               options={DdatePostedOptions}
@@ -194,20 +196,21 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
                   Recommended Jobs
                 </h3>
               </div>
-              <div className="rounded-2xl px-2 border border-black">
-                <h3 className="text-xl px-2 py-1 ">{filteredJobs.length}</h3>
-              </div>
+                <div className="flex items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-3 py-1">
+                <h3 className="text-sm font-semibold">{filteredJobs.length}</h3>
+                <span className="text-xs">jobs found</span>
+                </div>
             </div>
             <div className="relative md:w-[350px] w-full">
-              <div className="absolute inset-y-0 left-0 md:flex hidden items-center pl-3 ">
-                <CiSearch className="mb-1" />
-              </div>
-              <input
+                <div className="absolute inset-y-0 left-0 md:flex hidden items-center pl-3">
+                <CiSearch className="text-gray-500" />
+                </div>
+                <input
                 type="text"
-                className="border border-black md:w-[350px] rounded-full w-full px-6 pl-10 py-1 md:my-auto my-4 "
+                className="border border-gray-300 md:w-[350px] rounded-full w-full px-6 pl-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
                 placeholder="Find your perfect job"
                 onChange={(e) => handleFilterChange("searchTerm")(e.target.value)}
-              />
+                />
               <div className="absolute inset-y-0 right-0 flex md:hidden items-center pr-3">
                 <Dialog>
                   <DialogTrigger>
@@ -252,23 +255,31 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
             )}
           </div>
           {/* Pagination Controls */}
-          <div className="flex justify-between items-center my-6 px-6">
+            <div className="flex justify-between items-center my-6 px-6">
             <button
               onClick={handlePreviousPage}
-              className="px-4 py-2 bg-gray-200 rounded-md"
+              className={`px-3 py-2 bg-black text-white rounded-full transition-colors duration-300 ${
+              currentPage === 1
+              ? "cursor-not-allowed opacity-50"
+              : "hover:bg-gray-800"
+              }`}
               disabled={currentPage === 1}
             >
               Previous
             </button>
-            <span>{`${currentPage} of ${totalPages}`}</span>
+            <span className="text-lg font-semibold">{`${currentPage} of ${totalPages}`}</span>
             <button
               onClick={handleNextPage}
-              className="px-4 py-2 bg-gray-200 rounded-md"
+              className={`px-3 py-2 bg-black text-white rounded-full transition-colors duration-300 ${
+              currentPage === totalPages
+              ? "cursor-not-allowed opacity-50"
+              : "hover:bg-gray-800"
+              }`}
               disabled={currentPage === totalPages}
             >
               Next
             </button>
-          </div>
+            </div>
         </div>
       </div>
     </div>
