@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SideNav from "./SideNav";
@@ -9,10 +9,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { usePathname } from "next/navigation";
 
 
 const TopNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathname = usePathname();
+  const [currentPath, setCurrentPath] = useState("");
+
+  useEffect(() => {
+    setCurrentPath(pathname);
+  }, [pathname]);
 
   const toggleSideNav = () => {
     setIsOpen((prev) => !prev);
@@ -32,11 +40,11 @@ const TopNav = () => {
       className="h-120 w-120"
       />
       <div className="flex space-x-6 ml-20 font-poppins text-[14px]">
-        <Link href="/" className="text-gray-700 px-2 py-1 hover:text-blue-500 transition-colors duration-200">Find Jobs</Link>
-        <Link href="/" className="text-gray-700 px-2 py-1 hover:text-blue-500 transition-colors duration-200">Messages</Link>
-        <Link href="/" className="text-gray-700 px-2 py-1 hover:text-blue-500 transition-colors duration-200">Hiring</Link>
-        <Link href="/" className="text-gray-700 px-2 py-1 hover:text-blue-500 transition-colors duration-200">Community</Link>
-        <Link href="/" className="text-gray-700 px-2 py-1 hover:text-blue-500 transition-colors duration-200">FAQ</Link>
+      <Link href="/" className={`px-2 py-1 hover:text-blue-500 rounded-xl transition-colors duration-200 ${currentPath === "/" ? "text-black bg-gray-300" : ""}`}>Find Jobs</Link>
+        <Link href="/" className={`px-2 py-1 hover:text-blue-500 rounded-xl transition-colors duration-200 ${currentPath === "/messages" ? "text-black bg-gray-300" : ""}`}>Messages</Link>
+        <Link href="/hiring/newhorizons" className={`px-2 py-1 hover:text-blue-500 rounded-xl transition-colors duration-200 ${currentPath === "/hiring/newhorizons" ? "text-black bg-gray-300" : ""}`}>Hiring</Link>
+        <Link href="/" className={`px-2 py-1 hover:text-blue-500 rounded-xl transition-colors duration-200 ${currentPath === "/community" ? "text-black bg-gray-300" : ""}`}>Community</Link>
+        <Link href="/" className={`px-2 py-1 hover:text-blue-500 rounded-xl transition-colors duration-200 ${currentPath === "/FAQ" ? "text-black bg-gray-300" : ""}`}>FAQ</Link>
       </div>
       </div>
       <div className="flex items-center space-x-4">

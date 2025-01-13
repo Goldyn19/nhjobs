@@ -75,7 +75,7 @@ const JobCard: React.FC<jobCardProps> = ({
       </div>
       <div className="flex justify-between p-3">
         <div className="flex flex-col">
-          <h1 className="font-bold text-xl">₦ {salary}/hr</h1>
+          <h1 className="font-bold text-xl">₦ {salary}/month</h1>
           <h2 className="text-gray-500">{location}</h2>
         </div>
         <div>
