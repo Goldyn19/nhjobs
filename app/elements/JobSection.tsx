@@ -165,7 +165,7 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
       <div className="md:flex min-w-full">
         <div className="md:w-1/6 hidden bg-white md:flex mx-auto justify-center ">
           <div className={`md:block mt-10`}>
-            <h1 className="hidden md:block text-black font-bold text-xl pb-4">
+            <h1 className="hidden md:block text-black font-semibold text-xl pb-4">
               Filters
             </h1>
             <hr className="mb-2" />
@@ -192,7 +192,7 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
           <div className="container md:flex justify-between md:px-10 px-3">
             <div className="flex space-x-3">
               <div>
-                <h3 className="md:text-3xl text-2xl font-bold">
+                <h3 className="md:text-3xl text-2xl font-semibold text-black">
                   Recommended Jobs
                 </h3>
               </div>

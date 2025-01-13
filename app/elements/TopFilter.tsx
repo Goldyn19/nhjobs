@@ -88,11 +88,11 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
           <div className="rounded-full border flex align-middle justify-center h-auto w-auto p-2 hover:bg-gray-200 transition-colors duration-200">
             <CiSearch className="text-black text-lg" />
           </div>
-          <Select onValueChange={(value) => handleFilterChange("category", value)}>
-           <SelectTrigger className="border-0 w-[180px] bg-transparent focus:ring-2 focus:ring-blue-500" style={{ borderRadius: '20px' }}>
+            <Select onValueChange={(value) => handleFilterChange("category", value)}>
+            <SelectTrigger className="border-0 w-[180px] bg-white focus:ring-2 focus:ring-blue-500" style={{ borderRadius: '20px' }}>
               <SelectValue placeholder="Category" />
             </SelectTrigger>
-            <SelectContent className="bg-white text-black rounded-md shadow-lg">
+            <SelectContent className="bg-white text-black" style={{ borderRadius: '20px' }}>
               <SelectItem value="designer">Designer</SelectItem>
               <SelectItem value="frontend">Front End</SelectItem>
               <SelectItem value="backend">Back End</SelectItem>
@@ -100,7 +100,7 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
               <SelectItem value="fullstack">Fullstack</SelectItem>
               <SelectItem value="mobile app developer">Mobile App Developer</SelectItem>
             </SelectContent>
-          </Select>
+            </Select>
           <Separator orientation="vertical" className="bg-gray-300 h-full" />
         </div>
 
@@ -125,10 +125,10 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
             <CgBriefcase className="text-black text-lg" />
           </div>
             <Select onValueChange={(value) => handleFilterChange("experience", value)}>
-            <SelectTrigger className="border-0 w-[180px] bg-transparent focus:ring-2 focus:ring-blue-500" style={{ borderRadius: '20px' }}>
+            <SelectTrigger className="border-0 w-[180px] bg-white focus:ring-2 focus:ring-blue-500" style={{ borderRadius: '20px' }}>
               <SelectValue placeholder="Experience" />
             </SelectTrigger>
-            <SelectContent className="bg-transparent text-black" style={{ borderRadius: '20px' }}>
+            <SelectContent className="bg-white text-black" style={{ borderRadius: '20px' }}>
               <SelectItem value="0-1 years">0-1 years</SelectItem>
               <SelectItem value="1-2 years">1-2 years</SelectItem>
               <SelectItem value="2-3 years">2-3 years</SelectItem>
