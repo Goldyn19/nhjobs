@@ -42,10 +42,11 @@ interface JobSectionProps {
     experience?: string;
     salary?: number;
   }) => void;
+  source: string
 
 }
 
-const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
+const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter, source}) => {
   const workingScheduleOption = [
     { value: "Full Time", label: "Full Time" },
     { value: "Part Time", label: "Part Time" },
@@ -163,8 +164,8 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
   return (
     <div className="mx-0 h-full flex">
       <div className="md:flex min-w-full">
-        <div className="md:w-1/6 hidden bg-white md:flex mx-auto justify-center ">
-          <div className={`md:block mt-10`}>
+        <div className="md:w-1/6 hidden bg-white md:mx-2 md:flex mx-auto justify-center ">
+          <div className={`sm:block mt-10`}>
             <h1 className="hidden md:block text-black font-bold text-xl pb-4">
               Filters
             </h1>
@@ -189,15 +190,15 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
           </div>
         </div>
         <div className="md:w-5/6 mt-5 overflow-scroll overflow-x-hidden">
-          <div className="container md:flex justify-between md:px-10 px-3">
-            <div className="flex space-x-3">
+          <div className="container xl:flex xl:justify-between md:px-10 px-3">
+            <div className="md:flex md:justify-between space-x-3 ">
               <div>
-                <h3 className="md:text-3xl text-2xl font-bold">
-                  Recommended Jobs
+                <h3 className="xl:text-3xl text-2xl font-bold">
+                  {source}
                 </h3>
               </div>
-                <div className="flex items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-3 py-1">
-                <h3 className="text-sm font-semibold">{filteredJobs.length}</h3>
+                <div className="md:flex hidden items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-3 py-1">
+                <span className="text-sm font-semibold">{filteredJobs.length}</span>
                 <span className="text-xs">jobs found</span>
                 </div>
             </div>
@@ -207,11 +208,11 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
                 </div>
                 <input
                 type="text"
-                className="border border-gray-300 md:w-[350px] rounded-full w-full px-6 pl-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+                className="border border-gray-300 xl:w-[350px]  rounded-full w-full px-6 pl-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
                 placeholder="Find your perfect job"
                 onChange={(e) => handleFilterChange("searchTerm")(e.target.value)}
                 />
-              <div className="absolute inset-y-0 right-0 flex md:hidden items-center pr-3">
+              <div className="absolute inset-y-0 right-0  flex xl:hidden items-center pr-3">
                 <Dialog>
                   <DialogTrigger>
                     <LuSettings2 />
@@ -247,7 +248,7 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter}) => {
               </div>
             </div>
           </div>
-          <div className="md:grid md:grid-cols-3 xl:grid-cols-4 md:mx-6 mx-2  md:gap-4 pt-6 ">
+          <div className="md:grid md:grid-cols-2 xl:grid-cols-4 xl:mx-6 mx-2  md:gap-4 pt-6 ">
             {currentJobs.length > 0 ? (
               currentJobs.map((job, index) => <JobCard key={index} {...job} />)
             ) : (
