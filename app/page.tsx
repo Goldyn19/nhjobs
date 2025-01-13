@@ -48,7 +48,7 @@ export default function Home() {
     <Separator  />
     <TopFilter jobs={jobData} onFilter={handleFilter} />
     <div className="flex-1 overflow-y-auto ">
-        <JobSection jobData={filteredJobs} onMobileFilter={handleMobileFilter}/>
+        <JobSection jobData={filteredJobs} onMobileFilter={handleMobileFilter} source="Recommended Jobs"/>
       </div>
    </div>
   );

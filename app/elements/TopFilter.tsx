@@ -12,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
 import debounce from "lodash.debounce";
 
@@ -74,14 +73,8 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
 
   const [sliderValue, setSliderValue] = useState(50);
 
-  const getIcon = (value: number) => {
-    if (value == 0) return <CiMoneyBill className="text-white text-lg" />;
-    return <h5 className="text-white text-sm">{value}</h5>
-    
-  };
-
   return (
-    <div className="bg-white py-4 hidden md:block">
+    <div className="bg-white py-4 hidden xl:block">
       <div className="container mx-auto justify-center flex align-middle space-x-8">
         {/* Category Filter */}
         <div className="flex space-x-3 text-black items-center">
