@@ -162,128 +162,128 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter, source
   };
 
   return (
-    <div className="mx-0 h-full flex">
-      <div className="md:flex min-w-full">
-        <div className="md:w-1/6 hidden bg-white md:mx-2 md:flex mx-auto justify-center ">
-          <div className={`sm:block mt-10`}>
-            <h1 className="hidden md:block text-black font-bold text-xl pb-4">
-              Filters
-            </h1>
-            <hr className="mb-2" />
-            <DropDowns
-              label="Working Schedule"
-              options={workingScheduleOption}
-              onChange={handleFilterChange("schedule")}
-            />
-            <hr className="mb-1 mt-3" />
-            <DropDowns
-              label="Employment Type"
-              options={employmentTypeOptions}
-              onChange={handleFilterChange("employmentType")}
-            />
-            <hr className="mb-1 mt-3" />
-            <DropDowns
-              label="Date posted"
-              options={DdatePostedOptions}
-              onChange={handleFilterChange("date")}
-            />
-          </div>
-        </div>
-        <div className="md:w-5/6 mt-5 overflow-scroll overflow-x-hidden">
-          <div className="container xl:flex xl:justify-between md:px-10 px-3">
-            <div className="md:flex md:justify-between space-x-3 ">
-              <div>
-                <h3 className="xl:text-3xl text-2xl font-bold">
-                  {source}
-                </h3>
-              </div>
-                <div className="md:flex hidden items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-3 py-1">
-                <span className="text-sm font-semibold">{filteredJobs.length}</span>
-                <span className="text-xs">jobs found</span>
-                </div>
-            </div>
-            <div className="relative md:w-[350px] w-full">
-                <div className="absolute inset-y-0 left-0 md:flex hidden items-center pl-3">
-                <CiSearch className="text-gray-500" />
-                </div>
-                <input
-                type="text"
-                className="border border-gray-300 xl:w-[350px]  rounded-full w-full px-6 pl-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-                placeholder="Find your perfect job"
-                onChange={(e) => handleFilterChange("searchTerm")(e.target.value)}
-                />
-              <div className="absolute inset-y-0 right-0  flex xl:hidden items-center pr-3">
-                <Dialog>
-                  <DialogTrigger>
-                    <LuSettings2 />
-                  </DialogTrigger>
-                  <DialogContent className="bg-nhBlue-200">
-                    <DialogHeader>
-                      <DialogTitle className="text-white">Filters</DialogTitle>
-                      <DialogDescription>
-                        <hr className="m-4" />
-                        <div className={`md:block `}>
-                          <DropDowns
-                            label="Working Schedule"
-                            options={workingScheduleOption}
-                            onChange={handleFilterChange("schedule")}
-                          />
-                          <DropDowns
-                            label="Employment Type"
-                            options={employmentTypeOptions}
-                            onChange={handleFilterChange("employmentType")}
-                          />
-                          <DropDowns
-                            label="Date posted"
-                            options={DdatePostedOptions}
-                            onChange={handleFilterChange("date")}
-                          />
-                          <MobileFilter onFilter={onMobileFilter}/>
-
-                        </div>
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </div>
-          </div>
-          <div className="md:grid md:grid-cols-2 xl:grid-cols-4 xl:mx-6 mx-2  md:gap-4 pt-6 ">
-            {currentJobs.length > 0 ? (
-              currentJobs.map((job, index) => <JobCard key={index} {...job} />)
-            ) : (
-              <p className="text-center text-gray-500">No jobs found.</p>
-            )}
-          </div>
-          {/* Pagination Controls */}
-            <div className="flex justify-between items-center my-6 px-6">
-            <button
-              onClick={handlePreviousPage}
-              className={`px-3 py-2 bg-black text-white rounded-full transition-colors duration-300 ${
-              currentPage === 1
-              ? "cursor-not-allowed opacity-50"
-              : "hover:bg-gray-800"
-              }`}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </button>
-            <span className="text-lg font-semibold">{`${currentPage} of ${totalPages}`}</span>
-            <button
-              onClick={handleNextPage}
-              className={`px-3 py-2 bg-black text-white rounded-full transition-colors duration-300 ${
-              currentPage === totalPages
-              ? "cursor-not-allowed opacity-50"
-              : "hover:bg-gray-800"
-              }`}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
-            </div>
-        </div>
+<div className="mx-0 h-full flex">
+  <div className="md:flex min-w-full">
+    <div className="md:w-1/6 hidden bg-white md:mx-2 md:flex mx-auto justify-center ">
+      <div className={`sm:block mt-10`}>
+        <h1 className="hidden md:block text-black font-bold text-xl pb-4">
+          Filters
+        </h1>
+        <hr className="mb-2" />
+        <DropDowns
+          label="Working Schedule"
+          options={workingScheduleOption}
+          onChange={handleFilterChange("schedule")}
+        />
+        <hr className="mb-1 mt-3" />
+        <DropDowns
+          label="Employment Type"
+          options={employmentTypeOptions}
+          onChange={handleFilterChange("employmentType")}
+        />
+        <hr className="mb-1 mt-3" />
+        <DropDowns
+          label="Date posted"
+          options={DdatePostedOptions}
+          onChange={handleFilterChange("date")}
+        />
       </div>
     </div>
+    <div className="md:w-5/6 mt-5 overflow-scroll overflow-x-hidden">
+      <div className="container xl:flex xl:justify-between md:px-10 px-3">
+        <div className="md:flex md:justify-between space-x-3 ">
+          <div>
+            <h3 className="xl:text-3xl text-2xl font-bold">
+              {source}
+            </h3>
+          </div>
+            <div className="md:flex hidden items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-3 py-1">
+            <span className="text-sm font-semibold">{filteredJobs.length}</span>
+            <span className="text-xs">jobs found</span>
+            </div>
+        </div>
+        <div className="relative md:w-[350px] w-full">
+            <div className="absolute inset-y-0 left-0 md:flex hidden items-center pl-3">
+            <CiSearch className="text-gray-500" />
+            </div>
+            <input
+            type="text"
+            className="border border-gray-300 xl:w-[350px]  rounded-full w-full px-6 pl-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+            placeholder="Find your perfect job"
+            onChange={(e) => handleFilterChange("searchTerm")(e.target.value)}
+            />
+          <div className="absolute inset-y-0 right-0  flex xl:hidden items-center pr-3">
+            <Dialog>
+              <DialogTrigger>
+                <LuSettings2 />
+              </DialogTrigger>
+              <DialogContent className="bg-nhBlue-200">
+                <DialogHeader>
+                  <DialogTitle className="text-white">Filters</DialogTitle>
+                  <DialogDescription>
+                    <hr className="m-4" />
+                    <div className={`md:block `}>
+                      <DropDowns
+                        label="Working Schedule"
+                        options={workingScheduleOption}
+                        onChange={handleFilterChange("schedule")}
+                      />
+                      <DropDowns
+                        label="Employment Type"
+                        options={employmentTypeOptions}
+                        onChange={handleFilterChange("employmentType")}
+                      />
+                      <DropDowns
+                        label="Date posted"
+                        options={DdatePostedOptions}
+                        onChange={handleFilterChange("date")}
+                      />
+                      <MobileFilter onFilter={onMobileFilter}/>
+
+                    </div>
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+      </div>
+      <div className="md:grid md:grid-cols-2 xl:grid-cols-4 xl:mx-6 mx-2  md:gap-4 pt-6 ">
+        {currentJobs.length > 0 ? (
+          currentJobs.map((job, index) => <JobCard key={index} {...job} />)
+        ) : (
+          <p className="text-center text-gray-500">No jobs found.</p>
+        )}
+      </div>
+      {/* Pagination Controls */}
+        <div className="flex justify-between items-center my-6 px-6">
+        <button
+          onClick={handlePreviousPage}
+          className={`px-3 py-2 bg-black text-white rounded-full transition-colors duration-300 ${
+          currentPage === 1
+          ? "cursor-not-allowed opacity-50"
+          : "hover:bg-gray-800"
+          }`}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <span className="text-lg font-semibold">{`${currentPage} of ${totalPages}`}</span>
+        <button
+          onClick={handleNextPage}
+          className={`px-3 py-2 bg-black text-white rounded-full transition-colors duration-300 ${
+          currentPage === totalPages
+          ? "cursor-not-allowed opacity-50"
+          : "hover:bg-gray-800"
+          }`}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+        </div>
+    </div>
+  </div>
+</div>
   );
 };
 
