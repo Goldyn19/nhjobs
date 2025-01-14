@@ -89,10 +89,10 @@ const TopNav = () => {
         </button>
         <div className="flex flex-col items-center space-y-4 mt-10">
           <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold ">Find Jobs</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Messages</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Hiring</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Community</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">FAQ</Link>
+          <Link  href="/messages" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Messages</Link>
+          <Link href="/hiring/newhorizons" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Hiring</Link>
+          <Link href="/community" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Community</Link>
+          <Link href="/FAQ" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">FAQ</Link>
          
 
           <br />
