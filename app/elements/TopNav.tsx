@@ -39,7 +39,7 @@ const TopNav = () => {
         width={150}
         className="h-120 w-120 md:h-140 md:w-140"
         />
-        <div className="hidden md:flex space-x-6 ml-10 font-poppins text-sm">
+        <div className="hidden lg:flex space-x-6 ml-10 font-poppins text-sm">
         <Link href="/" className={`${currentPath === "/" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Find Jobs</Link>
         <Link href="/messages" className={`${currentPath === "/messages" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Messages</Link>
         <Link href="/hiring/newhorizons" className={`${currentPath === "/hiring/newhorizons" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Hiring</Link>
@@ -48,14 +48,14 @@ const TopNav = () => {
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <div className="hidden md:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
+        <div className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
         <IoLocationOutline className="text-gray-700 hover:text-blue-500 text-lg" />
         <span className="ml-2 text-sm font-bold">Lagos, Nigeria</span>
         </div>
-        <Link href="/" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        <Link href="/" className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <IoSettingsOutline className="text-lg" />
         </Link>
-        <Link href="/" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        <Link href="/" className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <IoNotificationsOutline className="text-lg" />
         </Link>
         <Popover>
@@ -74,7 +74,7 @@ const TopNav = () => {
           <Link href="/" className="text-center text-gray-700 hover:text-blue-500 py-2 transition-colors duration-200">Logout</Link>
         </PopoverContent>
         </Popover>
-        <button onClick={toggleSideNav} className="md:hidden text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        <button onClick={toggleSideNav} className="lg:hidden text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>

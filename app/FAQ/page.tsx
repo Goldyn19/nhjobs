@@ -3,7 +3,7 @@ import ComingSoon from "../elements/ComingSoon";
 import TopNav from "../elements/TopNav";
 const page = () => {
   return (
-    <div className='h-screen'>
+    <div className='h-screen overflow-clip'>
         <TopNav/>
       <ComingSoon/>
     </div>
