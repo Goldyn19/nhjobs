@@ -6,6 +6,7 @@ import JobSection from '@/app/elements/JobSection'
 import jobData from "@/utils/nh";
 
 interface Job{
+    id: string,
     date: string;
     color: string;
     role: string;

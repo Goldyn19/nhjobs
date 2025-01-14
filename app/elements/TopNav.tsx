@@ -41,21 +41,21 @@ const TopNav = () => {
         />
         <div className="hidden md:flex space-x-6 ml-10 font-poppins text-sm">
         <Link href="/" className={`${currentPath === "/" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Find Jobs</Link>
-        <Link href="/" className={`${currentPath === "/messages" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Messages</Link>
+        <Link href="/messages" className={`${currentPath === "/messages" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Messages</Link>
         <Link href="/hiring/newhorizons" className={`${currentPath === "/hiring/newhorizons" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Hiring</Link>
-        <Link href="/" className={`${currentPath === "/community" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>Community</Link>
-        <Link href="/" className={`${currentPath === "/FAQ" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>FAQ</Link>
+        <Link href="/community" className={`${currentPath === "/community" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>Community</Link>
+        <Link href="/FAQ" className={`${currentPath === "/FAQ" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>FAQ</Link>
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <Link href="/" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
+        <div className="hidden md:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
         <IoLocationOutline className="text-gray-700 hover:text-blue-500 text-lg" />
         <span className="ml-2 text-sm font-bold">Lagos, Nigeria</span>
-        </Link>
-        <Link href="/settings" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        </div>
+        <Link href="/" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <IoSettingsOutline className="text-lg" />
         </Link>
-        <Link href="/notifications" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        <Link href="/" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <IoNotificationsOutline className="text-lg" />
         </Link>
         <Popover>

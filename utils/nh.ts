@@ -2,6 +2,7 @@
 
 const jobData = [
     {
+        id: '01',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Graphic Design Instructor",
@@ -12,6 +13,7 @@ const jobData = [
       logo: "/images/NH-Favicon.png"
     },
     {
+        id: '02',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Data Analysis Instructor",
@@ -22,6 +24,7 @@ const jobData = [
       logo: "/images/NH-Favicon.png"
     },
     {
+        id: '03',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Full Stack Instuctor",
@@ -32,6 +35,7 @@ const jobData = [
       logo: "/images/NH-Favicon.png"
     },
     {
+        id: '04',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Machine Learning Instructor",
@@ -42,6 +46,7 @@ const jobData = [
       logo: "/images/NH-Favicon.png"
     },
     {
+        id: '05',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Cyber security & Networking Instructor",
@@ -52,6 +57,7 @@ const jobData = [
       logo: "/images/NH-Favicon.png"
     },
     {
+        id: '06',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Counselors",
@@ -62,6 +68,7 @@ const jobData = [
       logo: "/images/NH-Favicon.png"
     },
     {
+        id: '07',
       date: "13 Jan, 2025",
       color: "#7aaed5",
       role: "Sales Representative",
