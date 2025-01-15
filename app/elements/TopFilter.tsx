@@ -18,12 +18,14 @@ import debounce from "lodash.debounce";
 
 
 interface Job {
+  id: string,
   date: string;
   color: string;
   role: string;
   companyName: string;
   location: string;
   salary: number;
+  experience: string;
   logo: string;
   otherDetails: string[];
 }
@@ -46,6 +48,16 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
+  const checkExperienceMatch = (
+    jobExperience: string,
+    filterExperience: string
+  ) => {
+    const [min, max] = filterExperience.split("-").map(Number); // Split range and convert to numbers
+    const jobExp = Number(jobExperience); // Convert job experience to a number
+    console.log(jobExperience)
+    return jobExp >= min && (max ? jobExp <= max : true);
+  };
+
   // Handle filtering logic
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
@@ -53,7 +65,7 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
       return (
         (!category || job.role.toLowerCase().includes(category.toLowerCase())) &&
         (!location || job.location.toLowerCase().includes(location.toLowerCase())) &&
-        (!experience || job.role.toLowerCase().includes(experience.toLowerCase())) &&
+        (!experience || checkExperienceMatch(job.experience, experience)) &&
         (!salary || job.salary >= salary)
       );
       
@@ -122,12 +134,12 @@ const TopFilter: React.FC<TopFilterProps> = ({ jobs, onFilter }) => {
               <SelectValue placeholder="Experience" />
             </SelectTrigger>
             <SelectContent className="bg-white text-black" style={{ borderRadius: '20px' }}>
-              <SelectItem value="0-1 years">0-1 years</SelectItem>
-              <SelectItem value="1-2 years">1-2 years</SelectItem>
-              <SelectItem value="2-3 years">2-3 years</SelectItem>
-              <SelectItem value="3-4 years">3-4 years</SelectItem>
-              <SelectItem value="4-5 years">4-5 years</SelectItem>
-              <SelectItem value="5+ years">5+ years</SelectItem>
+              <SelectItem value="0-1">0-1 years</SelectItem>
+              <SelectItem value="1-2 ">1-2 years</SelectItem>
+              <SelectItem value="2-3">2-3 years</SelectItem>
+              <SelectItem value="3-4">3-4 years</SelectItem>
+              <SelectItem value="4-5">4-5 years</SelectItem>
+              <SelectItem value="5+">5+ years</SelectItem>
             </SelectContent>
             </Select>
           <Separator orientation="vertical" className="bg-gray-300 h-full" />

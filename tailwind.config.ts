@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		screens: {
+			sm: "480px",    // Change small breakpoint to 480px
+			md: "768px",    // Change medium breakpoint to 768px
+			lg: "1024px",   // Change large breakpoint to 1024px
+			xl: "1280px",   // Change extra-large breakpoint to 1280px
+			"2xl": "1536px" // Add or change 2xl breakpoint
+		  },
   		colors: {
   			nhOrange: {
   				'100': '#EB460E',

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SideNav from "./SideNav";
@@ -9,10 +9,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { usePathname } from "next/navigation";
 
 
 const TopNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathname = usePathname();
+  const [currentPath, setCurrentPath] = useState("");
+
+  useEffect(() => {
+    setCurrentPath(pathname);
+  }, [pathname]);
 
   const toggleSideNav = () => {
     setIsOpen((prev) => !prev);
@@ -31,23 +39,23 @@ const TopNav = () => {
         width={150}
         className="h-120 w-120 md:h-140 md:w-140"
         />
-        <div className="hidden md:flex space-x-6 ml-10 font-poppins text-sm">
-        <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 font-semibold">Find Jobs</Link>
-        <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 font-semibold">Messages</Link>
-        <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 font-semibold">Hiring</Link>
-        <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 font-semibold">Community</Link>
-        <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 font-semibold">FAQ</Link>
+        <div className="hidden lg:flex space-x-6 ml-10 font-poppins text-sm">
+        <Link href="/" className={`${currentPath === "/" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Find Jobs</Link>
+        <Link href="/messages" className={`${currentPath === "/messages" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Messages</Link>
+        <Link href="/hiring/newhorizons" className={`${currentPath === "/hiring/newhorizons" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Hiring</Link>
+        <Link href="/community" className={`${currentPath === "/community" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>Community</Link>
+        <Link href="/FAQ" className={`${currentPath === "/FAQ" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>FAQ</Link>
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <Link href="/" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
+        <div className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
         <IoLocationOutline className="text-gray-700 hover:text-blue-500 text-lg" />
         <span className="ml-2 text-sm font-bold">Lagos, Nigeria</span>
-        </Link>
-        <Link href="/settings" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        </div>
+        <Link href="/" className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <IoSettingsOutline className="text-lg" />
         </Link>
-        <Link href="/notifications" className="hidden md:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        <Link href="/" className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <IoNotificationsOutline className="text-lg" />
         </Link>
         <Popover>
@@ -66,7 +74,7 @@ const TopNav = () => {
           <Link href="/" className="text-center text-gray-700 hover:text-blue-500 py-2 transition-colors duration-200">Logout</Link>
         </PopoverContent>
         </Popover>
-        <button onClick={toggleSideNav} className="md:hidden text-gray-700 hover:text-blue-500 transition-colors duration-200">
+        <button onClick={toggleSideNav} className="lg:hidden text-gray-700 hover:text-blue-500 transition-colors duration-200">
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -80,11 +88,11 @@ const TopNav = () => {
           </svg>
         </button>
         <div className="flex flex-col items-center space-y-4 mt-10">
-          <Link href="/find-jobs" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold ">Find Jobs</Link>
-          <Link href="/messages" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Messages</Link>
-          <Link href="/hiring" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Hiring</Link>
+          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold ">Find Jobs</Link>
+          <Link  href="/messages" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Messages</Link>
+          <Link href="/hiring/newhorizons" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Hiring</Link>
           <Link href="/community" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Community</Link>
-          <Link href="/faq" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">FAQ</Link>
+          <Link href="/FAQ" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">FAQ</Link>
          
 
           <br />

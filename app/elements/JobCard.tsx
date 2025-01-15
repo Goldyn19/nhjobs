@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { CiBookmark } from "react-icons/ci";
 import { Poppins } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const poppins = Poppins({
   weight: ["400", "700"],
@@ -9,6 +10,7 @@ const poppins = Poppins({
 });
 
 interface jobCardProps {
+  id: string;
   date: string;
   color: string;
   role: string;
@@ -19,7 +21,10 @@ interface jobCardProps {
   otherDetails: string[];
 }
 
+
+
 const JobCard: React.FC<jobCardProps> = ({
+  id,
   date,
   color,
   role,
@@ -29,6 +34,13 @@ const JobCard: React.FC<jobCardProps> = ({
   otherDetails,
   logo,
 }) => {
+
+  const router = useRouter();
+
+const viewDetails = ((jobID: string) =>{
+  router.push(`/details/${jobID}`)
+})
+
   return (
     <div className="rounded-3xl border flex flex-col space-y-3 justify-between p-2 max-w-[454px] min-h-[300px]">
       <div
@@ -75,11 +87,11 @@ const JobCard: React.FC<jobCardProps> = ({
       </div>
       <div className="flex justify-between p-3">
         <div className="flex flex-col">
-          <h1 className="font-bold text-xl">₦ {salary}/hr</h1>
+          <h1 className="font-bold text-xl">₦ {salary}/month</h1>
           <h2 className="text-gray-500">{location}</h2>
         </div>
         <div>
-          <button className="px-3 py-2 bg-black text-white rounded-full">
+          <button className="px-3 py-2 bg-black text-white rounded-full" onClick={()=>viewDetails(id)}>
             Details
           </button>
         </div>
