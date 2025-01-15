@@ -4,7 +4,7 @@ import TopNav from "../elements/TopNav";
 const page = () => {
   return (
     <div>
-      <div className="h-screen">
+      <div className="h-screen overflow-clip">
         <TopNav />
         <ComingSoon />
       </div>
