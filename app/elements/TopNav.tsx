@@ -35,17 +35,17 @@ const TopNav = () => {
         <Image
         src="/images/nhlogo.png"
         alt="new horizons logo"
-        height={150}
-        width={150}
-        className="h-120 w-120 md:h-140 md:w-140"
+        height={180}
+        width={180}
+        className="h-150 w-150 md:h-140 md:w-140 mt-2"
         />
-        <div className="hidden lg:flex space-x-6 ml-10 font-poppins text-sm">
-        <Link href="/" className={`${currentPath === "/" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Find Jobs</Link>
-        <Link href="/messages" className={`${currentPath === "/messages" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Messages</Link>
-        <Link href="/hiring/newhorizons" className={`${currentPath === "/hiring/newhorizons" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-2 py-1 rounded-xl transition-colors duration-200 font-semibold`}>Hiring</Link>
-        <Link href="/community" className={`${currentPath === "/community" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>Community</Link>
-        <Link href="/FAQ" className={`${currentPath === "/FAQ" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-2 py-1 rounded-xl font-semibold`}>FAQ</Link>
-        </div>
+          <div className="hidden lg:flex space-x-2 ml-14 font-poppins text-sm">
+            <Link href="/" className={`${currentPath === "/" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-4 py-1 rounded-[10px] transition-colors duration-200 font-semibold`}>Find Jobs</Link>
+            <Link href="/messages" className={`${currentPath === "/messages" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-4 py-1 rounded-[10px] transition-colors duration-200 font-semibold`}>Messages</Link>
+            <Link href="/hiring/newhorizons" className={`${currentPath === "/hiring/newhorizons" ? "text-black bg-gray-300" : ""} hover:text-blue-500 px-4 py-1 rounded-[10px] transition-colors duration-200 font-semibold`}>Hiring</Link>
+            <Link href="/community" className={`${currentPath === "/community" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-4 py-1 rounded-[10px] font-semibold`}>Community</Link>
+            <Link href="/FAQ" className={`${currentPath === "/FAQ" ? "text-black bg-gray-300" : ""} hover:text-blue-500 transition-colors duration-200 px-4 py-1 rounded-xl font-semibold`}>FAQ</Link>
+          </div>
       </div>
       <div className="flex items-center space-x-4">
         <div className="hidden lg:flex items-center text-gray-700 hover:text-blue-500 px-3 py-2 transition-colors duration-200">
