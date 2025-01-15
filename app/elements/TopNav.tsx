@@ -25,7 +25,7 @@ const TopNav = () => {
       <div className="container mx-auto h-full flex justify-between items-center">
       <div className="flex items-center">
         <Image
-        src="/images/nhlogo.svg"
+        src="/images/nhlogo.png"
         alt="new horizons logo"
         height={150}
         width={150}
@@ -57,7 +57,7 @@ const TopNav = () => {
           alt="User Avatar"
           height={30}
           width={30}
-          className="h-8 w-8 rounded-full bg-black"
+          className="h-5 w-5 rounded-full bg-black"
           />
         </PopoverTrigger>
         <PopoverContent className="bg-white shadow-lg rounded-lg w-48 flex flex-col p-4">
@@ -80,11 +80,11 @@ const TopNav = () => {
           </svg>
         </button>
         <div className="flex flex-col items-center space-y-4 mt-10">
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold ">Find Jobs</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Messages</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Hiring</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Community</Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">FAQ</Link>
+          <Link href="/find-jobs" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold ">Find Jobs</Link>
+          <Link href="/messages" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Messages</Link>
+          <Link href="/hiring" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Hiring</Link>
+          <Link href="/community" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">Community</Link>
+          <Link href="/faq" className="text-gray-700 hover:text-blue-500 transition-colors duration-200 text-[35px] font-semibold">FAQ</Link>
          
 
           <br />
