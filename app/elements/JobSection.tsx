@@ -24,6 +24,7 @@ interface Filters {
 }
 
 interface JobData {
+  id: string
   date: string;
   color: string;
   role: string;

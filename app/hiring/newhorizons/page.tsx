@@ -3,9 +3,10 @@ import React, {useState} from 'react'
 import TopNav from '@/app/elements/TopNav'
 import { Separator } from "@/components/ui/separator"
 import JobSection from '@/app/elements/JobSection'
-import jobData from "@/utils/data";
+import jobData from "@/utils/nh";
 
 interface Job{
+    id: string,
     date: string;
     color: string;
     role: string;
