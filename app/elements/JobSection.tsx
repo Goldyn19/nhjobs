@@ -194,13 +194,13 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter, source
       <div className="container xl:flex xl:justify-between md:px-10 px-3">
         <div className="md:flex md:justify-between space-x-3 ">
           <div>
-            <h3 className="xl:text-3xl text-2xl font-bold">
+            <h3 className="xl:text-3xl text-2xl font-[600] text-black">
               {source}
             </h3>
           </div>
             <div className="md:flex hidden items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-3 py-1">
             <span className="text-sm font-semibold">{filteredJobs.length}</span>
-            <span className="text-xs">jobs found</span>
+            <span className="text-xs">Jobs Found</span>
             </div>
         </div>
         <div className="relative md:w-[350px] w-full">
