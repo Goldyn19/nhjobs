@@ -10,6 +10,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
 const Page = () => {
   interface jobDetails {
     date: string;
@@ -51,15 +59,15 @@ const Page = () => {
   return (
     <div>
       <TopNav />
-      <div className="flex mx-auto border-2 shadow-md p-8 max-w-screen-lg md:mt-6">
+      <div className="flex mx-auto border-2 shadow-md p-8 max-w-screen-lg md:mt-6 rounded-3xl mb-4">
         <div className="w-full">
           <div className="flex justify-between w-full container md:mb-10 mb-4">
             <div>
-              <h3 className="font-bold text-[16px]">
+              <h3 className={`font-normal text-[14px] ${poppins.className}`}>
                 Neural Strategic Solutions, Inc
               </h3>
-              <h1 className="font-bold text-[24px]">AEM Web Content</h1>
-              <h4 className="text-[14px]">Remote</h4>
+              <h1 className={` font-bold text-[34px] mt-0" ${poppins.className}`}>AEM Web Content</h1>
+              <h4 className={`text-[14px] ${poppins.className}`}>Remote</h4>
             </div>
             <div className="flex justify-center align-middle space-x-3">
               <Popover>
@@ -75,33 +83,38 @@ const Page = () => {
               <button className="hidden md:block bg-white rounded-full p-2">
                 <CiBookmark size={22} />
               </button>
+
+              <button className="hidden md:block bg-white rounded-full p-2">
+              <PiShareNetworkFill size={22} />
+              </button>
+
               <div className=" justify-center items-center hidden md:flex">
-                <button className="bg-nhBlue-100 h-fit py-3 px-4 flex items-center space-x-2 rounded">
-                  <PiShareNetworkFill size={22} />
-                  <span>Apply Directly</span>
+                <button className="px-3 py-2 bg-nhBlue-200 text-white rounded-full">
+                  
+                  <span className="text-[14px]">Apply Directly</span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="md:space-y-4 space-y-1">
+          <div className="md:space-y-2 space-y-1">
             <div className="flex space-x-3">
-              <h1 className="text-[16px] font-bold">Title-</h1>
+              <h1 className="text-[16px] font-bold">Title:</h1>
               <h4 className="text-[14px] ">
                 AEM Project Coordinator (Web Content)
               </h4>
             </div>
-            <div className="flex space-x-3">
-              <h1 className="text-[16px] font-bold">Location-</h1>
+            <div className="flex space-x-1">
+              <h1 className="text-[16px] font-bold">Location:</h1>
               <h4 className="text-[14px] ">Remote</h4>
             </div>
-            <div className="flex space-x-3">
-              <h1 className="text-[16px] font-bold">Duration-</h1>
+            <div className="flex space-x-1">
+              <h1 className="text-[16px] font-bold">Duration:</h1>
               <h4 className="text-[14px] ">
                 12 Months Contract likely to extend
               </h4>
             </div>
-            <div className="">
-              <h1 className="text-[16px] font-bold">Job Description:</h1>
+            <div className="md:flex space-x-6 mt-4">
+              <h1 className="text-[16px] font-bold">Description:</h1>
               <h4 className="text-[14px] ">
                 The person hired for the position of project coordinator will
                 partner with different company departments to co-manage the
@@ -124,7 +137,7 @@ const Page = () => {
                 and solutions.
               </h4>
             </div>
-            <div className="">
+            <div className="md:flex space-x-6">
               <h1 className="text-[16px] font-bold">Responsibility:</h1>
               <h4 className="text-[14px] ">
                 <ul className="list-disc pl-5">
@@ -154,7 +167,7 @@ const Page = () => {
                 </ul>
               </h4>
             </div>
-            <div className="">
+            <div className="md:flex space-x-6">
               <h1 className="text-[16px] font-bold">Qualification:</h1>
               <h4 className="text-[14px]">
                 <ul className="list-disc pl-5">
@@ -167,7 +180,7 @@ const Page = () => {
                 </ul>
               </h4>
             </div>
-            <div className="">
+            <div className="md:flex space-x-6">
               <h1 className="text-[14px] font-bold">Preferred Skills:</h1>
               <h4 className="text-[14px]">
                 <ul className="list-disc pl-5">
