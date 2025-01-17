@@ -66,7 +66,7 @@ const Page = () => {
               <h3 className={`font-normal text-[14px] ${poppins.className}`}>
                 Neural Strategic Solutions, Inc
               </h3>
-              <h1 className={` font-bold text-[34px] mt-0" ${poppins.className}`}>AEM Web Content</h1>
+              <h1 className={` font-bold text-[40px] mt-0" ${poppins.className}`}>AEM Web Content</h1>
               <h4 className={`text-[14px] ${poppins.className}`}>Remote</h4>
             </div>
             <div className="flex justify-center align-middle space-x-3">
@@ -96,24 +96,31 @@ const Page = () => {
               </div>
             </div>
           </div>
-          <div className="md:space-y-2 space-y-1">
-            <div className="flex space-x-3">
-              <h1 className="text-[16px] font-bold">Title:</h1>
-              <h4 className="text-[14px] ">
-                AEM Project Coordinator (Web Content)
-              </h4>
-            </div>
-            <div className="flex space-x-1">
-              <h1 className="text-[16px] font-bold">Location:</h1>
-              <h4 className="text-[14px] ">Remote</h4>
-            </div>
-            <div className="flex space-x-1">
-              <h1 className="text-[16px] font-bold">Duration:</h1>
-              <h4 className="text-[14px] ">
-                12 Months Contract likely to extend
-              </h4>
-            </div>
-            <div className="md:flex space-x-6 mt-4">
+
+
+          <div className="md:space-y-2 space-y-4">
+
+          <div className="p-6 bg-gray-100 rounded-[20px] space-y-4 mb-8">
+            <h2 className={`font-bold text-[24px] ${poppins.className}`}>Job  Details</h2>
+  <div className="flex items-center space-x-2">
+    <h1 className="text-[16px] font-bold">Title:</h1>
+    <h4 className="text-[14px]">AEM Project Coordinator (Web Content)</h4>
+  </div>
+
+  <div className="flex items-center space-x-2">
+    <h1 className="text-[16px] font-bold">Location:</h1>
+    <h4 className="text-[14px]">Remote</h4>
+  </div>
+
+  <div className="flex items-center space-x-2">
+    <h1 className="text-[16px] font-bold">Duration:</h1>
+    <h4 className="text-[14px]">12 Months Contract likely to extend</h4>
+  </div>
+</div>
+
+      
+
+            <div className="md:flex space-x-12 mt-8">
               <h1 className="text-[16px] font-bold">Description:</h1>
               <h4 className="text-[14px] ">
                 The person hired for the position of project coordinator will
@@ -167,7 +174,7 @@ const Page = () => {
                 </ul>
               </h4>
             </div>
-            <div className="md:flex space-x-6">
+            <div className="md:flex space-x-8">
               <h1 className="text-[16px] font-bold">Qualification:</h1>
               <h4 className="text-[14px]">
                 <ul className="list-disc pl-5">
@@ -180,7 +187,7 @@ const Page = () => {
                 </ul>
               </h4>
             </div>
-            <div className="md:flex space-x-6">
+            <div className="md:flex space-x-7">
               <h1 className="text-[14px] font-bold">Preferred Skills:</h1>
               <h4 className="text-[14px]">
                 <ul className="list-disc pl-5">
@@ -198,6 +205,8 @@ const Page = () => {
                 </ul>
               </h4>
             </div>
+
+          <div className="p-6 bg-gray-100 rounded-[20px] space-y-4 mb-8">  
             <div className="flex space-x-1">
               <h1 className="text-[14px] font-bold">Job Type:</h1>
               <h4 className="text-[14px] ">Contract</h4>
@@ -210,6 +219,9 @@ const Page = () => {
               <h1 className="text-[14px] font-bold">Experience:</h1>
               <h4 className="text-[14px] font-bold"></h4>
             </div>
+            </div>
+
+
           </div>
         </div>
       </div>
