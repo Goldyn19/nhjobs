@@ -38,7 +38,7 @@ const MobileFilter: React.FC<MobileFilterProps> = ({ onFilter }) => {
     onFilter({ category, location, experience, salary });
   };
   return (
-    <div className="bg-nhBlue-200 py-4 block">
+    <div className="bg-nhBlue-200 py-4 block sm:h-[100dvh]">
       <div className="container mx-auto justify-center flex flex-col align-middle space-y-4">
         <div className="flex  text-white">
           <div className="rounded-full border flex align-middle justify-center justify-items-center h-auto w-auto p-2">

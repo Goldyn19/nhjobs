@@ -3,7 +3,7 @@
 const jobData = [
     {
       id: '01',
-      date: "12 Jan, 2025",
+      date: "26 Mar, 2025",
       color: "#E0F7FA",
       role: "Frontend Developer",
       companyName: "Google",
@@ -15,7 +15,7 @@ const jobData = [
     },
     {
       id: '02',
-      date: "8 Jan, 2025",
+      date: "24 Mar, 2025",
       color: "#FFECB3",
       role: "Backend Developer",
       companyName: "Facebook",
@@ -27,7 +27,7 @@ const jobData = [
     },
     {
       id: '03',
-      date: "22 Dec, 2024",
+      date: "12 Mar, 2025",
       color: "#C8E6C9",
       role: "Product Designer",
       companyName: "Apple",
@@ -39,7 +39,7 @@ const jobData = [
     },
     {
       id: '04',
-      date: "10 Jan, 2025",
+      date: "19 Mar, 2025",
       color: "#FFCDD2",
       role: "Data Scientist",
       companyName: "Netflix",
@@ -51,7 +51,7 @@ const jobData = [
     },
     {
       id: '05',
-      date: "15 Dec, 2024",
+      date: "12 Mar, 2025",
       color: "#D1C4E9",
       role: "Software Engineer",
       companyName: "Microsoft",
@@ -63,7 +63,7 @@ const jobData = [
     },
     {
       id: '06',
-      date: "1 Jan, 2025",
+      date: "26 Feb, 2025",
       color: "#FFE0B2",
       role: "UI/UX Designer",
       companyName: "Adobe",
@@ -75,7 +75,7 @@ const jobData = [
     },
     {
       id: '07',
-      date: "25 Dec, 2024",
+      date: "21 Mar, 2025",
       color: "#F8BBD0",
       role: "Machine Learning Engineer",
       companyName: "OpenAI",
@@ -87,7 +87,7 @@ const jobData = [
     },
     {
       id: '08',
-      date: "30 Dec, 2024",
+      date: "21 Feb, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
@@ -99,7 +99,7 @@ const jobData = [
     },
     {
       id: '09',
-      date: "30 Dec, 2024",
+      date: "11 Mar, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
@@ -111,7 +111,7 @@ const jobData = [
     },
     {
       id: '10',
-      date: "30 Dec, 2024",
+      date: "06 Feb, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
@@ -123,7 +123,7 @@ const jobData = [
     },
     {
       id: '11',
-      date: "30 Dec, 2024",
+      date: "18 Feb, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
@@ -135,7 +135,7 @@ const jobData = [
     },
     {
       id: '12',
-      date: "30 Dec, 2024",
+      date: "06 Mar, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
@@ -147,7 +147,7 @@ const jobData = [
     },
     {
       id: '13',
-      date: "30 Oct, 2024",
+      date: "18 Feb, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
@@ -159,7 +159,7 @@ const jobData = [
     },
     {
       id: '14',
-      date: "30 Oct, 2024",
+      date: "20 Mar, 2025",
       color: "#B3E5FC",
       role: "DevOps Engineer",
       companyName: "Amazon",
