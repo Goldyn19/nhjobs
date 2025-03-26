@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Image from "next/image";
 import { CiBookmark } from "react-icons/ci";
 import { Poppins } from "next/font/google";
@@ -40,6 +40,7 @@ const JobCard: React.FC<jobCardProps> = ({
 const viewDetails = ((jobID: string) =>{
   router.push(`/details/${jobID}`)
 })
+const [isBookmarked, setIsBookmarked] = useState(false);
 
   return (
     <div className="rounded-3xl border flex flex-col space-y-3 justify-between p-2 max-w-[454px] min-h-[300px]">
@@ -52,8 +53,8 @@ const viewDetails = ((jobID: string) =>{
             {date}
             </div>
           <div className=" flex flex-col justify-center ">
-            <button className="bg-white rounded-full p-2">
-              <CiBookmark size={17} />
+            <button className={`bg-white rounded-full p-2 ` } onClick={() => setIsBookmarked(!isBookmarked)} aria-label="Bookmark job">
+              <CiBookmark size={17} color={isBookmarked ? "#EB460E" : "black"} fill={isBookmarked ? "#EB460E" : "black"}/>
             </button>
           </div>
         </div>
