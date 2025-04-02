@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { FaRegUser } from "react-icons/fa";
 
 const Page = () => {
+  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -35,6 +38,8 @@ const Page = () => {
     const formData = {
       email,
       password,
+      lastName,
+      firstName
     };
 
     console.log("Form data:", formData);
@@ -108,8 +113,8 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center flex-col mx-auto justify-center ">
-        <div className="flex items-center mb-5">
+      <div className="flex items-center flex-col mx-auto justify-center">
+        <div className="flex items-center  md:my-2 mt-10">
           <Image
             src="/images/nhlogo.svg"
             alt="logo"
@@ -120,10 +125,10 @@ const Page = () => {
         </div>
         <div className="card bg-white mt-5 px-5 md:w-[476px] w-full rounded-lg  pt-5 pb-10">
           <h1 className="text-[30px] font-[700] text-nhBlue-100 pt-5">
-            Create an account
+            Create a <span className="text-nhOrange-100">Freelancing</span> Account
           </h1>
           <h2 className="text-[18px] text-nhBlue-100 mb-5 text-light-black">
-            and Find your dream Job
+            and Find your <span className="text-nhOrange-100">Dream Job</span>
           </h2>
           {success ? (
             <div>
@@ -138,6 +143,50 @@ const Page = () => {
             </div>
           ) : (
             <form className="w-full mt-10" onSubmit={handleSubmit}>
+              <div className="flex space-x-3 mb-5">
+                <div>
+                <label
+                htmlFor="email-address-icon"
+                className="text-gray-500 font-[500]"
+              >
+                First Name
+              </label>
+              <div className="relative w-full">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 mt-1">
+                <FaRegUser />
+                </div>
+                <input
+                  type="email"
+                  id="email-address-icon"
+                  className="rounded-lg block w-full h-[64px] shadow-sm pl-10 border border-dark-grey focus:border-nhBlue-100 focus:outline-nhBlue-100 focus:shadow-sm focus:shadow-nhBlue-100"
+                  placeholder="e.g. John"
+                  aria-label="First Name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+                </div>
+                <div>
+                <label
+                htmlFor="email-address-icon"
+                className="text-gray-500 font-[500]"
+              >
+                Last Name
+              </label>
+              <div className="relative w-full">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 mt-1">
+                <FaRegUser />
+                </div>
+                <input
+                  type="email"
+                  id="email-address-icon"
+                  className="rounded-lg block w-full h-[64px] shadow-sm pl-10 border border-dark-grey focus:border-nhBlue-100 focus:outline-nhBlue-100 focus:shadow-sm focus:shadow-nhBlue-100"
+                  placeholder="e.g. Doe"
+                  aria-label="Last Name"
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
+                </div>
+              </div>
               <label
                 htmlFor="email-address-icon"
                 className="text-gray-500 font-[500]"
@@ -234,7 +283,7 @@ const Page = () => {
                 <input type="checkbox" name="rememberPassword" />
                 <label htmlFor="rememberPassword">Remember my password</label>
               </div>
-              <a href="/" className="block text-end text-nhBlue-100">
+              <a href="/employer/signup" className="block text-end text-nhBlue-100">
                 Signup as an Employer
               </a>
               {error && <p className="text-red-500 mt-2">{error}</p>}
@@ -250,7 +299,7 @@ const Page = () => {
 
           <h1 className="flex mx-auto items-center justify-center mt-5 text-body-m">
             <span className="">Already have an account? </span>
-            <a href="/signup" className="text-nhBlue-100 font-bold pl-1">
+            <a href="/login" className="text-nhBlue-100 font-bold pl-1">
               Login to account
             </a>
           </h1>

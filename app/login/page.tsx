@@ -39,11 +39,8 @@ const Page = () => {
     >
       <div className="text-white  justify-center align-middle mx-auto w-[350px]">
         <Image src='/images/quotation.svg' alt="quotation mark" height={20} width={26} className="my-4"/>
-       <h1 className="text-xl text-">
-       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-        repudiandae voluptate dolorem nam culpa rerum! Incidunt, distinctio?
-        Similique, exercitationem ipsam nostrum recusandae cumque eveniet
-        velit, sit labore, nemo iure vel.
+       <h1 className="text-xl ">
+       Connect with Africa&apos;s best-trained and highly skilled IT professionals—innovators, problem-solvers, and tech leaders shaping the future of the industry.
        </h1>
        <div className="flex w-full justify-end">
         <Image src='/images/edgeicon.svg' alt="Quotation mark" height={39} width={43} className="my-4 flex justify-end"/>

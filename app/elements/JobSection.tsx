@@ -213,7 +213,7 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter, source
             placeholder="Find your perfect job"
             onChange={(e) => handleFilterChange("searchTerm")(e.target.value)}
             />
-          <div className="absolute inset-y-0 right-0  flex xl:hidden items-center pr-3">
+          <div className="absolute inset-y-0 right-0  max-h-screen sm:max-h-[100dvh] flex xl:hidden items-center pr-3">
             <Dialog>
               <DialogTrigger>
                 <LuSettings2 />
@@ -223,7 +223,7 @@ const JobSection: React.FC<JobSectionProps> = ({ jobData, onMobileFilter, source
                   <DialogTitle className="text-white">Filters</DialogTitle>
                   <DialogDescription>
                     <hr className="m-4" />
-                    <div className={`md:block `}>
+                    <div className={`md:block  `}>
                       <DropDowns
                         label="Working Schedule"
                         options={workingScheduleOption}
