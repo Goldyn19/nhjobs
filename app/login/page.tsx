@@ -32,12 +32,14 @@ const Page = () => {
   return (
     <div className="h-screen flex  lg:grid grid-cols-2">
     <div
-      className=" hidden lg:flex relative items-center "
+      className=" hidden lg:flex  relative items-center "
       style={{ background: `rgba(0,74,152,0.8)url('/images/loginbg2.jpg')`,  backgroundRepeat: 'no-repeat',
           backgroundBlendMode: 'darken',
           backgroundSize: 'cover', }}
     >
+      
       <div className="text-white  justify-center align-middle mx-auto w-[350px]">
+      <h1 className='text-4xl font-bold mb-6'>Hire the Best. <br/>Work with the Best.</h1>
         <Image src='/images/quotation.svg' alt="quotation mark" height={20} width={26} className="my-4"/>
        <h1 className="text-xl ">
        Connect with Africa&apos;s best-trained and highly skilled IT professionals—innovators, problem-solvers, and tech leaders shaping the future of the industry.

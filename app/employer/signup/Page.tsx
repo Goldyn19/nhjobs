@@ -125,7 +125,7 @@ const Page = () => {
         </div>
         <div className="card bg-white mt-5 px-5 md:w-[476px] w-full rounded-lg  pt-5 pb-10">
           <h1 className="text-[30px] font-[700] text-nhBlue-100 pt-5">
-            Create an <span className="text-nhOrange-100">Employee</span>{" "}
+            Create an <span className="text-nhOrange-100">Employer</span>{" "}
             Account
           </h1>
           <h2 className="text-[18px] text-nhBlue-100 mb-5 text-light-black">
