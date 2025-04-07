@@ -26,18 +26,26 @@ export default function Home() {
   };
   return (
     <div>
-      <div className="bg-[#6d6b6b]">
-        <nav className="bg-white border-b py-5 md:py-5 px-4 md:px-10 shadow-sm">
+      <section
+        className=""
+        style={{
+          backgroundImage: "url('/images/landing-bg.jpg')",
+          backgroundSize: "cover", // or 'contain' based on your need
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <nav className="bg-transparent border-b py-5 md:py-5 px-4 md:px-10 shadow-sm text-white">
           {isOpen && (
             <SideNav sidebarToggle={toggleSideNav} sideBarStatus={isOpen} />
           )}
           <div className="container mx-auto h-full flex justify-between items-center">
             <div className="flex items-center">
               <Image
-                src="/images/nhlogo.png"
+                src="/images/nh-logo-white.png"
                 alt="new horizons logo"
-                height={180}
-                width={180}
+                height={220}
+                width={220}
                 className="h-150 w-150 md:h-140 md:w-140 mt-2"
               />
             </div>
@@ -78,13 +86,13 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex items-center space-x-4">
-            <Link href="/login">
-              <button className="py-2 px-4 hidden md:block">Sign In</button>
+              <Link href="/login">
+                <button className="py-2 px-4 hidden md:block">Sign In</button>
               </Link>
               <Link href="/signup">
-              <button className="py-2 px-4 bg-nhOrange-100 text-white rounded-xl hidden md:block">
-                Sign Up
-              </button>
+                <button className="py-2 px-4 bg-nhOrange-100 text-white rounded-xl hidden md:block">
+                  Sign Up
+                </button>
               </Link>
               <button
                 onClick={toggleSideNav}
@@ -201,35 +209,40 @@ export default function Home() {
             </div>
           </div>
         </nav>
-        <div>
-          <div className="flex justify-center flex-col mx-auto max-w-xl">
-            <h1 className="text-center text-4xl font-bold leading-[50px]">
-              Find Your Next Gig With Our <br /> Freelance Job Platform
-            </h1>
-            <p className="text-center">
-              Streamline yor freelance business with our job finder platform.
-              Find opportunities, manage workloads, and maximize earnings
-            </p>
-            <div className="flex justify-center mt-10">
-              <Link href="/login">
-              <button className="py-2 px-4 hidden md:block">Sign In</button>
-              </Link>
-              <Link href="/signup">
-              <button className="py-2 px-4 bg-nhOrange-100 text-white rounded-xl hidden md:block">
-                Sign Up
-              </button>
-              </Link>
+        <div className="text-white pb-24">
+          <div className="flex justify-center flex-col mx-auto ">
+            <div className="flex flex-col justify-center mx-auto max-w-2xl mt-[80px]">
+              <h1 className="text-center text-5xl font-bold leading-[60px]">
+                Find Your Next Gig With Our <br /> Freelance Job Platform
+              </h1>
+              <p className="text-center mt-5">
+                Streamline yor freelance business with our job finder platform.
+                Find opportunities, manage workloads, and maximize earnings
+              </p>
+              <div className="flex justify-center mt-10 space-x-6 mb-[30px]">
+                <Link href="/login">
+                  <button className="py-2 px-4 hidden md:block bg-slate-500 rounded-xl">Sign In</button>
+                </Link>
+                <Link href="/signup">
+                  <button className="py-2 px-4 bg-nhOrange-100 text-white rounded-xl hidden md:block">
+                    Sign Up
+                  </button>
+                </Link>
+              </div>
             </div>
             <Image
-            src='/images/full-screenshot.png'
-            alt='screenshot of job portal'
-            className=""
-            height={1000}
-            width={1000}
+              src="/images/full-screenshot.png"
+              alt="screenshot of job portal"
+              className="mx-auto lg:block hidden rounded-md"
+              height={1000}
+              width={1200}
             />
           </div>
         </div>
-      </div>
+      </section>
+      <section>
+        
+      </section>
     </div>
   );
 }
