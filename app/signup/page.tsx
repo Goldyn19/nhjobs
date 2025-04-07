@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FaRegUser } from "react-icons/fa";
+// import { FaRegUser } from "react-icons/fa";
 
 const Page = () => {
-  const [lastName, setLastName] = useState("");
-  const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -38,8 +38,8 @@ const Page = () => {
     const formData = {
       email,
       password,
-      lastName,
-      firstName
+      // lastName,
+      // firstName
     };
 
     console.log("Form data:", formData);
@@ -143,7 +143,7 @@ const Page = () => {
             </div>
           ) : (
             <form className="w-full mt-10" onSubmit={handleSubmit}>
-              <div className="flex space-x-3 mb-5">
+              {/* <div className="flex space-x-3 mb-5">
                 <div>
                 <label
                 htmlFor="email-address-icon"
@@ -186,7 +186,7 @@ const Page = () => {
                 />
               </div>
                 </div>
-              </div>
+              </div> */}
               <label
                 htmlFor="email-address-icon"
                 className="text-gray-500 font-[500]"

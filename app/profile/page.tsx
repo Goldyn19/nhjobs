@@ -1,11 +1,18 @@
-import React from 'react'
-import ComingSoon from '../elements/ComingSoon'
+import React from "react";
+import TopNav from "../elements/TopNav";
 const page = () => {
   return (
     <div>
-      <ComingSoon/>
+      <TopNav />
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div></div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
