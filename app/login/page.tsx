@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 const Page = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('john@example.com');
+  const [password, setPassword] = useState('12345678');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -15,6 +15,7 @@ const Page = () => {
     setError('');
     setLoading(true);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const result = await signIn('credentials', {
       redirect: false,
       email,
@@ -28,6 +29,9 @@ const Page = () => {
     } else {
       router.push('/');
     }
+
+    
+
   };
   return (
     <div className="h-screen flex  lg:grid grid-cols-2">

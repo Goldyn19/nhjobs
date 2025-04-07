@@ -31,7 +31,7 @@ export default function Home() {
   ) => {
     const [min, max] = filterExperience.split("-").map(Number); // Split range and convert to numbers
     const jobExp = Number(jobExperience); // Convert job experience to a number
-    // console.log(jobExperience )
+    // console.log(jobExperience)
     return jobExp >= min && (max ? jobExp <= max : true);
   };
   const handleMobileFilter = (filters: {
