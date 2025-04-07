@@ -47,7 +47,7 @@ const TopNav = () => {
             <Link
               href="/"
               className={`${
-                currentPath === "/" ? "text-black bg-gray-300" : ""
+                currentPath === "/jobs" ? "text-black bg-gray-300" : ""
               } hover:text-blue-500 px-4 py-1 rounded-[10px] transition-colors duration-200 font-semibold`}
             >
               Find Jobs
