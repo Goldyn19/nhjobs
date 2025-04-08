@@ -42,7 +42,7 @@ const Page = () => {
       // firstName
     };
 
-    console.log("Form data:", formData);
+    // console.log("Form data:", formData);
 
     const url = `${process.env.NEXT_PUBLIC_API_URL}members/register`;
 
@@ -55,6 +55,7 @@ const Page = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         if (data.message === "User created successfully") {
           setSuccess(true);
           setLoading(false);
