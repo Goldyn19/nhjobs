@@ -18,8 +18,8 @@ interface FormData {
 interface EmployerProfileProps {
   initialData?: Partial<FormData>;
 }
-const Page: React.FC<EmployerProfileProps> = ({ initialData }) => {
-  const [formData, setFormData] = useState(initialData || {
+const Page: React.FC<EmployerProfileProps> = () => {
+  const [formData, setFormData] = useState( {
     company_name: '',
     company_website: '',
     company_logo: null,
