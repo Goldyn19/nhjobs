@@ -35,11 +35,14 @@ const Page = () => {
       return;
     }
 
+    const user_type = "employer";
+
     const formData = {
       email,
       password,
       lastName,
       firstName,
+      user_type,
     };
 
     console.log("Form data:", formData);
@@ -96,12 +99,9 @@ const Page = () => {
             width={26}
             className="my-4"
           />
-          <h1 className="text-xl text-">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-            repudiandae voluptate dolorem nam culpa rerum! Incidunt, distinctio?
-            Similique, exercitationem ipsam nostrum recusandae cumque eveniet
-            velit, sit labore, nemo iure vel.
-          </h1>
+            <h1 className="text-xl text-">
+            &quot;The future belongs to those who prepare for it today. Start your journey to find the perfect talent or opportunity.&quot;
+            </h1>
           <div className="flex w-full justify-end">
             <Image
               src="/images/edgeicon.svg"

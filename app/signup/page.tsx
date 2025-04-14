@@ -13,7 +13,7 @@ const Page = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
+  const [emailError, setEmailError] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,11 +35,14 @@ const Page = () => {
       return;
     }
 
+    const user_type ='job_seeker'
+
     const formData = {
       email,
       password,
       // lastName,
       // firstName
+      user_type,
     };
 
     // console.log("Form data:", formData);
@@ -55,7 +58,8 @@ const Page = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
+      
         if (data.message === "User created successfully") {
           setSuccess(true);
           setLoading(false);
@@ -63,7 +67,11 @@ const Page = () => {
             router.push("/login");
           }, 3000);
         } else {
-          setError(data.message || "Registration failed");
+          if (data.non_field_errors) {
+            setEmailError(data.non_field_errors[0]);
+          } else {
+            setError(data.message || "Registration failed");
+          }
           setLoading(false);
         }
       })
@@ -97,12 +105,9 @@ const Page = () => {
             width={26}
             className="my-4"
           />
-          <h1 className="text-xl text-">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-            repudiandae voluptate dolorem nam culpa rerum! Incidunt, distinctio?
-            Similique, exercitationem ipsam nostrum recusandae cumque eveniet
-            velit, sit labore, nemo iure vel.
-          </h1>
+            <h1 className="text-xl text-">
+            &quot;Choose a job you love, and you will never have to work a day in your life.&quot; - Confucius
+            </h1>
           <div className="flex w-full justify-end">
             <Image
               src="/images/edgeicon.svg"
@@ -114,7 +119,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center flex-col mx-auto justify-center">
+      <div className="flex items-center flex-col mx-auto justify-center ">
         <div className="flex items-center  md:my-2 mt-10">
           <Image
             src="/images/nhlogo.svg"
@@ -217,6 +222,7 @@ const Page = () => {
                   aria-label="Email Address"
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                {emailError && <p className="text-red-500 mt-2">{emailError}</p>}
               </div>
               <label
                 htmlFor="password"

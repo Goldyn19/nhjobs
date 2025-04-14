@@ -45,7 +45,7 @@ const TopNav = () => {
           />
           <div className="hidden lg:flex space-x-2 ml-14 font-poppins text-sm">
             <Link
-              href="/"
+              href="/jobs"
               className={`${
                 currentPath === "/jobs" ? "text-black bg-gray-300" : ""
               } hover:text-blue-500 px-4 py-1 rounded-[10px] transition-colors duration-200 font-semibold`}
@@ -68,7 +68,7 @@ const TopNav = () => {
                   : ""
               } hover:text-blue-500 px-4 py-1 rounded-[10px] transition-colors duration-200 font-semibold`}
             >
-              Hiring
+             NH Jobs
             </Link>
             <Link
               href="/community"

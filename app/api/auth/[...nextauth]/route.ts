@@ -60,6 +60,7 @@ const handler = NextAuth({
         const customUser = user as User;  // Cast user to your custom User type
         token.id = customUser.id;
         token.accessToken = customUser.accessToken;
+        token.user_type = customUser.user_type;
       }
       return token;
     },
@@ -68,6 +69,7 @@ const handler = NextAuth({
         session.user = session.user || {}; // Ensure session.user is initialized
         session.user.id = token.id as string;
         session.accessToken = token.accessToken as string;
+        session.user.user_type = token.user_type as string;
       }
       return session;
     },

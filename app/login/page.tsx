@@ -2,13 +2,14 @@
 import React, {useState} from 'react'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn,  getSession   } from 'next-auth/react';
 const Page = () => {
   const [email, setEmail] = useState('john@example.com');
   const [password, setPassword] = useState('12345678');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  // const { data: session } = useSession();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,14 +26,29 @@ const Page = () => {
     setLoading(false);
 
     if (result?.error) {
-      setError(result.error);
-    } else {
-      router.push('/jobs');
+      setError(result.error)
+      setLoading(false)
+      return
     }
 
-    
+    const updatedSession = await getSession();
+    console.log(updatedSession)
+    switch (updatedSession?.user?.user_type) {
+      case 'employer':
+        router.push('/employe/profile')
+        break
+      case 'job_seeker':
+        router.push('/profile')
+        break
+      default:
+        router.push('/jobs') // Fallback for missing user_type
+        break
+    }
 
-  };
+    setLoading(false)
+  }
+
+    
   return (
     <div className="h-screen flex  lg:grid grid-cols-2">
     <div
