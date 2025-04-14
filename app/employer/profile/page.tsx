@@ -2,23 +2,21 @@
 import { useState } from 'react'
 import { Globe, Mail, Phone, Linkedin, Upload, Save } from 'lucide-react'
 
-interface FormData {
-  company_name: string;
-  company_website: string;
-  company_logo: string | null;
-  industry: string;
-  company_size: '' | '1-10' | '11-50' | '51-200' | '201-500' | '500+';
-  location: string;
-  description: string;
-  contact_email: string;
-  contact_phone: string;
-  linkedin_url: string;
-}
+// interface FormData {
+//   company_name: string;
+//   company_website: string;
+//   company_logo: string | null;
+//   industry: string;
+//   company_size: '' | '1-10' | '11-50' | '51-200' | '201-500' | '500+';
+//   location: string;
+//   description: string;
+//   contact_email: string;
+//   contact_phone: string;
+//   linkedin_url: string;
+// }
 
-interface EmployerProfileProps {
-  initialData?: Partial<FormData>;
-}
-const Page: React.FC<EmployerProfileProps> = () => {
+
+const Page = () => {
   const [formData, setFormData] = useState( {
     company_name: '',
     company_website: '',
