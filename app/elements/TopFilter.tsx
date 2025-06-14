@@ -26,7 +26,7 @@ interface Job {
   location: string;
   salary: number;
   experience: string;
-  logo: string;
+  logo: string | null;
   otherDetails: string[];
 }
 

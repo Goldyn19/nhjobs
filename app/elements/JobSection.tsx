@@ -31,7 +31,7 @@ interface JobData {
   companyName: string;
   location: string;
   salary: number;
-  logo: string;
+  logo: string | null;
   otherDetails: string[];
 }
 

@@ -26,7 +26,7 @@ interface FormattedJobType {
   role: string;
   companyName: string;
   location: string;
-  salary: number;
+  salary: number | null;
   logo: string;
   experience: string;
   otherDetails: string[];
@@ -56,7 +56,7 @@ export default async function Home() {
     role: job.role,
     companyName: job.companyName,
     location: job.location,
-    salary: job.salary !== null ? job.salary : 0,
+    salary: job.salary,
     logo: job.logo !== null ? job.logo : "",
     experience: job.experience,
     otherDetails: [
@@ -69,10 +69,10 @@ export default async function Home() {
   }));
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <section
-        className="bg-gray-900"
+        className="bg-gray-900 flex-grow"
         style={{
           backgroundImage: "url('/images/landing-bg.jpg')",
           backgroundSize: "cover",
@@ -85,11 +85,11 @@ export default async function Home() {
           <div className="container mx-auto h-full flex justify-between items-center">
             <div className="flex items-center">
               <Image
-                src="/images/derrida-logo-white.png"
-                alt="Derrida logo"
+                src="/images/NHAnniversaryLogo.svg"
+                alt="New horizons logo"
                 height={40}
-                width={150}
-                className="h-auto w-auto"
+                width={300}
+                
               />
             </div>
             <div className="hidden lg:flex space-x-8 font-poppins text-sm">
@@ -100,29 +100,29 @@ export default async function Home() {
                 Home
               </Link>
               <Link
-                href="/about"
+                href="#"
                 className={`hover:text-green-400 transition-colors duration-200 font-semibold`}
               >
                 About
               </Link>
               <Link
-                href="/features"
+                href="#"
                 className={`hover:text-green-400 transition-colors duration-200 font-semibold`}
               >
                 Feature
               </Link>
               <Link
-                href="/resources"
+                href="#"
                 className={`hover:text-green-400 transition-colors duration-200 font-semibold`}
               >
                 Resource
               </Link>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/login">
+              <Link href="/jobs">
                 <button className="py-2 px-4 hidden md:block text-white ">Sign In</button>
               </Link>
-              <Link href="/signup">
+              <Link href="/jobs">
                 <button className="py-2 px-4 bg-green-500 text-white rounded-md hidden md:block hover:bg-green-600 transition-colors duration-200">
                   Sign Up
                 </button>
@@ -219,24 +219,24 @@ export default async function Home() {
         </nav>
 
         {/* Hero Content */}
-        <div className="text-white py-24 px-4 md:px-10">
-          <div className="flex justify-center flex-col mx-auto max-w-4xl text-center">
+        <div className="text-white py-24 px-4 md:px-10 flex flex-col justify-center items-center text-center">
+          <div className="max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-              Find Your Next Gig with Our <br /> Freelance Job Platform
+              Find Your Next Gig with Our <br className="md:hidden" /> Freelance Job Platform
             </h1>
             <p className="mt-6 text-lg max-w-2xl mx-auto opacity-80">
               Streamline your freelance business with our job finder platform.
               Find opportunities, manage workloads, and maximize earnings.
             </p>
-            <div className="flex justify-center mt-10 space-x-4">
-              <Link href="/signup">
-                <button className="py-3 px-8 bg-green-500 text-white rounded-md text-lg font-semibold hover:bg-green-600 transition-colors duration-200">
+            <div className="flex flex-col sm:flex-row justify-center mt-10 space-y-4 sm:space-y-0 sm:space-x-4">
+              <Link href="/jobs">
+                <button className="py-3 px-8 bg-green-500 text-white rounded-md text-lg font-semibold hover:bg-green-600 transition-colors duration-200 w-full sm:w-auto">
                   Start Free Trial
                 </button>
               </Link>
               <Link href="/jobs">
-                <button className="py-3 px-8 bg-transparent border-2 border-white text-white rounded-md text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200">
-                  Explore Derrida
+                <button className="py-3 px-8 bg-transparent border-2 border-white text-white rounded-md text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200 w-full sm:w-auto">
+                  Explore NHJobs
                 </button>
               </Link>
             </div>
@@ -246,7 +246,7 @@ export default async function Home() {
             <Image
               src="/images/full-screenshot.png"
               alt="screenshot of job portal"
-              className="mx-auto rounded-lg shadow-2xl border border-gray-700"
+              className="mx-auto rounded-lg shadow-2xl border border-gray-700 max-w-full h-auto"
               height={600}
               width={1000}
             />
@@ -256,28 +256,28 @@ export default async function Home() {
 
       {/* Company Logos Section */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto text-center">
+        <div className="container mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-semibold text-gray-500 mb-8">Trusted by leading companies</h2>
-          <div className="flex justify-center items-center space-x-12 opacity-75">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-75">
             <Image src="/images/google-logo.png" alt="Google" width={120} height={40} />
-            <Image src="/images/laravel-logo.png" alt="Laravel" width={120} height={40} />
-            <Image src="/images/pipedrive-logo.png" alt="Pipedrive" width={120} height={40} />
-            <Image src="/images/huawei-logo.png" alt="Huawei" width={120} height={40} />
-            <Image src="/images/discord-logo.png" alt="Discord" width={120} height={40} />
+            <Image src="/images/microsoft-logo.png" alt="Laravel" width={120} height={40} />
+            <Image src="/images/openai-logo.png" alt="Pipedrive" width={120} height={40} />
+            <Image src="/images/netflix-logo.png" alt="Huawei" width={120} height={40} />
+            <Image src="/images/apple-logo.png" alt="Discord" width={120} height={40} />
           </div>
         </div>
       </section>
 
       {/* Streamline Your Job Search with Advanced Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-10 md:space-y-0 md:space-x-20">
           <div className="md:w-1/2">
             <Image 
-              src="/images/advanced-search-illustration.png"
+              src="/images/advanced-search-illustration.jpg"
               alt="Advanced Search"
               width={500}
               height={400}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg max-w-full h-auto"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
@@ -304,7 +304,7 @@ export default async function Home() {
       </section>
 
       {/* Create a Winning Resume With Integrated Builder Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-10 md:space-y-0 md:space-x-20">
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="text-4xl font-bold text-gray-800 leading-tight">Create a Winning Resume <br /> With Integrated Builder</h2>
@@ -312,31 +312,30 @@ export default async function Home() {
               By using our tool, you can compare salaries across industries and get accurate information about how your salary stacks up against others in your field.
             </p>
             <div className="mt-8">
-              <Link href="/resume-builder">
+              <Link href="#">
                 <button className="py-3 px-8 bg-green-500 text-white rounded-md text-lg font-semibold hover:bg-green-600 transition-colors duration-200">
-                  Create Resume
+                  Create Resume (Coming Soon)
                 </button>
               </Link>
             </div>
           </div>
           <div className="md:w-1/2">
             <Image
-              src="/images/salary-estimate-illustration.png"
+              src="/images/salary-estimate-illustration.jpg"
               alt="Salary Estimate"
               width={500}
               height={400}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg max-w-full h-auto"
             />
           </div>
         </div>
       </section>
 
       {/* Featured Jobs Section */}
-      <div className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">Featured Jobs</h2>
-          <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
             {formattedJobs.map((job: FormattedJobType) => (
               <Link
                 key={job.id}
@@ -401,19 +400,20 @@ export default async function Home() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/jobs" className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">
-              View All Jobs
+            <Link href="/jobs">
+              <button className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">
+                View All Jobs
+              </button>
             </Link>
           </div>
         </div>
       </div>
-      </div>
 
       {/* Testimonials Section */}
-      <section className="relative overflow-hidden bg-gray-900 py-24 sm:py-32">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gray-900 py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl">
           <h2 className="text-center text-4xl font-bold tracking-tight text-white sm:text-5xl">What Our Users Say</h2>
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="rounded-lg bg-white/10 p-6 shadow-xl ring-1 ring-inset ring-white/10">
               <blockquote className="text-lg font-semibold text-white">
                 <p>
@@ -461,17 +461,17 @@ export default async function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-green-500 text-white text-center">
+      <section className="py-20 bg-green-500 text-white text-center px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold">Find your best opportunities today!</h2>
-          <div className="mt-8 flex justify-center space-x-4">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link href="/jobs">
-              <button className="py-3 px-8 bg-white text-green-700 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
-                Explore Derrida
+              <button className="py-3 px-8 bg-white text-green-700 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors duration-200 w-full sm:w-auto">
+                Explore NH Jobs
               </button>
             </Link>
-            <Link href="/signup">
-              <button className="py-3 px-8 bg-transparent border-2 border-white text-white rounded-md text-lg font-semibold hover:bg-white hover:text-green-700 transition-colors duration-200">
+            <Link href="/jobs">
+              <button className="py-3 px-8 bg-transparent border-2 border-white text-white rounded-md text-lg font-semibold hover:bg-white hover:text-green-700 transition-colors duration-200 w-full sm:w-auto">
                 Start My Journey
               </button>
             </Link>
@@ -480,20 +480,20 @@ export default async function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center sm:text-left">
           <div>
             <Image
-              src="/images/derrida-logo-white.png"
-              alt="Derrida logo"
+              src="/images/NHAnniversaryLogo.svg"
+              alt="New horizons logo"
               height={40}
-              width={150}
-              className="h-auto w-auto mb-4 mx-auto md:mx-0"
+              width={250}
+              className=" mb-4 mx-auto sm:mx-0"
             />
             <p className="text-gray-400 text-sm">
               Streamline your freelance business with our job finder platform. Find your best opportunities today!
             </p>
-            <div className="flex space-x-4 mt-6 justify-center md:justify-start">
+            <div className="flex space-x-4 mt-6 justify-center sm:justify-start">
               {/* Social Icons - Placeholder */}
               <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-twitter"></i></a>
               <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-youtube"></i></a>

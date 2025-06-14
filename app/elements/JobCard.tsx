@@ -17,7 +17,7 @@ interface jobCardProps {
   companyName: string;
   location: string;
   salary: number;
-  logo: string;
+  logo: string | null;
   otherDetails: string[];
 }
 
@@ -66,7 +66,7 @@ const [isBookmarked, setIsBookmarked] = useState(false);
             <h1 className={`text-2xl max-w-[200px] font-medium text-[29px]  ${poppins.className}`}>{role}</h1>
             <div className="flex flex-col justify-center">
               <Image
-                src={logo}
+                src={logo ? logo : "/images/NH-Favicon.png"}
                 alt={`${companyName} logo`}
                 height={30}
                 width={30}
