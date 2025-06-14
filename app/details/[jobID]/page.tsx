@@ -1,24 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import TopNav from "@/app/elements/TopNav";
-import { CiBookmark } from "react-icons/ci";
-// import { CiFlag1 } from "react-icons/ci";
-import { BsThreeDots } from "react-icons/bs";
-import { PiShareNetworkFill } from "react-icons/pi";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import React from "react";
 
-import { Poppins } from "next/font/google";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
-const poppins = Poppins({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
+
 
 interface JobDetailsPageProps {
   params: {

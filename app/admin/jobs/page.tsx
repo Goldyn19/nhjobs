@@ -7,7 +7,17 @@ interface Job {
   companyName: string;
   location: string;
   otherDetails: string[];
-  status: string;
+  description: string;
+  experience: string;
+  salary: number | null;
+  logo: string | null;
+  color: string;
+  qualifications: string[];
+  preferredSkills: string[];
+  responsibilities: string[];
+  createdAt: Date;
+  updatedAt: Date;
+  createdById: string;
 }
 
 export default async function AdminJobsPage() {
@@ -69,12 +79,6 @@ export default async function AdminJobsPage() {
                       </th>
                       <th
                         scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        Status
-                      </th>
-                      <th
-                        scope="col"
                         className="relative py-3.5 pl-3 pr-4 sm:pr-6"
                       >
                         <span className="sr-only">Actions</span>
@@ -95,19 +99,6 @@ export default async function AdminJobsPage() {
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                           {job.otherDetails[0]}
-                        </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          <span
-                            className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
-                              job.status === "active"
-                                ? "bg-green-100 text-green-800"
-                                : job.status === "closed"
-                                ? "bg-red-100 text-red-800"
-                                : "bg-yellow-100 text-yellow-800"
-                            }`}
-                          >
-                            {job.status}
-                          </span>
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                           <Link
