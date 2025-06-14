@@ -10,43 +10,49 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   // const { data: session } = useSession();
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  setError("");
+  setLoading(true);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setError('');
-    setLoading(true);
+  const result = await signIn("credentials", {
+    redirect: false,
+    email,
+    password,
+  });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
+  if (result?.error) {
+    setError(result.error);
+    setLoading(false);
+    return;
+  }
+
+  // Force Next.js to refresh session cookie
+  router.refresh();
+
+  // Small delay to allow cookie propagation
+  setTimeout(async () => {
+    const session = await getSession();
+    console.log("✅ SESSION AFTER LOGIN:", session);
+
+    switch (session?.user?.user_type) {
+      case "admin":
+        router.push("/admin");
+        break;
+      case "employer":
+        router.push("/employe/profile");
+        break;
+      case "job_seeker":
+        router.push("/profile");
+        break;
+      default:
+        router.push("/jobs");
+    }
 
     setLoading(false);
+  }, 200); // 200ms delay
+};
 
-    if (result?.error) {
-      setError(result.error)
-      setLoading(false)
-      return
-    }
-
-    const updatedSession = await getSession();
-    console.log(updatedSession)
-    switch (updatedSession?.user?.user_type) {
-      case 'employer':
-        router.push('/employe/profile')
-        break
-      case 'job_seeker':
-        router.push('/profile')
-        break
-      default:
-        router.push('/jobs') // Fallback for missing user_type
-        break
-    }
-
-    setLoading(false)
-  }
 
     
   return (

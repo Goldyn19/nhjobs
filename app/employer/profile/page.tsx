@@ -143,7 +143,7 @@ const Page = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <label className="block text-gray-400 flex items-center gap-2">
+                <label className=" text-gray-400 flex items-center gap-2">
                   <Mail className="w-5 h-5" />
                   Contact Email
                 </label>
@@ -158,7 +158,7 @@ const Page = () => {
               </div>
 
               <div className="space-y-4">
-                <label className="block text-gray-400 flex items-center gap-2">
+                <label className=" text-gray-400 flex items-center gap-2">
                   <Phone className="w-5 h-5" />
                   Contact Phone
                 </label>
@@ -188,7 +188,7 @@ const Page = () => {
             </div>
 
             <div className="space-y-4">
-              <label className="block text-gray-400 flex items-center gap-2">
+              <label className=" text-gray-400 flex items-center gap-2">
                 <Linkedin className="w-5 h-5" />
                 LinkedIn Profile
               </label>
