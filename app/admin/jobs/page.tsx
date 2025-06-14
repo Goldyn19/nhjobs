@@ -1,6 +1,15 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
+interface Job {
+  id: string;
+  role: string;
+  companyName: string;
+  location: string;
+  otherDetails: string[];
+  status: string;
+}
+
 export default async function AdminJobsPage() {
   const jobs = await prisma.job.findMany({
     orderBy: {
@@ -38,13 +47,13 @@ export default async function AdminJobsPage() {
                         scope="col"
                         className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                       >
-                        Title
+                        Role
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Company
+                        Company Name
                       </th>
                       <th
                         scope="col"
@@ -73,19 +82,19 @@ export default async function AdminJobsPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    {jobs.map((job) => (
+                    {jobs.map((job: Job) => (
                       <tr key={job.id}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                          {job.title}
+                          {job.role}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {job.company}
+                          {job.companyName}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                           {job.location}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {job.type}
+                          {job.otherDetails[0]}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                           <span
@@ -106,6 +115,7 @@ export default async function AdminJobsPage() {
                             className="text-indigo-600 hover:text-indigo-900"
                           >
                             Edit
+                            <span className="sr-only">, {job.role}</span>
                           </Link>
                         </td>
                       </tr>

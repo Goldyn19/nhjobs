@@ -1,15 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import TopNav from "../elements/TopNav";
-import TopFilter from "../elements/TopFilter";
-import JobSection from "../elements/JobSection";
-import { Separator } from "@/components/ui/separator";
+import { prisma } from "@/lib/prisma";
+import JobsClient from "./jobs-client";
 
-import jobData from "@/utils/data";
-
-interface Job {
+interface JobWithCreator {
   id: string;
-  date: string;
+  createdAt: Date;
   color: string;
   role: string;
   companyName: string;
@@ -18,62 +12,53 @@ interface Job {
   logo: string;
   experience: string;
   otherDetails: string[];
+  createdBy: {
+    email: string;
+  };
 }
 
-const Page = () => {
-    const [filteredJobs, setFilteredJobs] = useState<Job[]>(jobData);
+async function getJobs() {
+  const jobs = await prisma.job.findMany({
+    orderBy: {
+      createdAt: 'desc'
+    },
+    include: {
+      createdBy: {
+        select: {
+          email: true
+        }
+      }
+    }
+  });
 
-    const handleFilter = (jobs: Job[]) => {
-      setFilteredJobs(jobs);
-    };
-    const checkExperienceMatch = (
-      jobExperience: string,
-      filterExperience: string
-    ) => {
-      const [min, max] = filterExperience.split("-").map(Number); // Split range and convert to numbers
-      const jobExp = Number(jobExperience); // Convert job experience to a number
-      // console.log(jobExperience)
-      return jobExp >= min && (max ? jobExp <= max : true);
-    };
-    const handleMobileFilter = (filters: {
-      category?: string;
-      location?: string;
-      experience?: string;
-      salary?: number;
-    }) => {
-      const filtered = jobData.filter((job) => {
-        const matchCategory = filters.category
-          ? job.role.toLowerCase().includes(filters.category.toLowerCase())
-          : true;
-        const matchLocation = filters.location
-          ? job.location.toLowerCase().includes(filters.location.toLowerCase())
-          : true;
-        const matchExperience = filters.experience
-          ? checkExperienceMatch(job.experience, filters.experience)
-          : true;
-        const matchSalary = filters.salary ? job.salary >= filters.salary : true;
-  
-        
-  
-        return matchCategory && matchLocation && matchExperience && matchSalary;
-      });
-  
-      setFilteredJobs(filtered);
-    };
-  return (
-    <div className="md:h-screen flex flex-col overflow-hidden">
-      <TopNav />
-      <Separator />
-      <TopFilter jobs={jobData} onFilter={handleFilter} />
-      <div className="flex-1 overflow-y-auto ">
-        <JobSection
-          jobData={filteredJobs}
-          onMobileFilter={handleMobileFilter}
-          source="Recommended Jobs"
-        />
-      </div>
-    </div>
-  )
+  return jobs.map((job: JobWithCreator) => ({
+    id: job.id,
+    date: new Date(job.createdAt).toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    }),
+    color: job.color,
+    role: job.role,
+    companyName: job.companyName,
+    location: job.location,
+    salary: job.salary,
+    logo: job.logo,
+    experience: job.experience,
+    otherDetails: [
+      job.otherDetails.includes("Full Time") ? "Full Time" : "Part Time",
+      job.otherDetails.includes("Senior Level") ? "Senior Level" : 
+      job.otherDetails.includes("Mid Level") ? "Mid Level" : "Entry Level",
+      job.otherDetails.includes("Remote") ? "Remote" : 
+      job.otherDetails.includes("Hybrid") ? "Hybrid" : "On-site",
+      job.otherDetails.includes("Permanent") ? "Permanent" : 
+      job.otherDetails.includes("Contract") ? "Contract" : "Temporary"
+    ]
+  }));
 }
 
-export default Page
+export default async function JobsPage() {
+  const jobs = await getJobs();
+
+  return <JobsClient initialJobs={jobs} />;
+}
